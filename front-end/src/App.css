@@ -9,3 +9,16 @@
 input, select, option {
     outline: none;
 }
+
+.buttons-dialog-app {
+    position: relative;
+    top: 1%;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.buttons-dialog-app button {
+    padding: 2px 14px;
+    font-size: 17px;
+    outline: none;
+}

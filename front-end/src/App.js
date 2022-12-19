@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import PrivateRoutes from "./PrivateRoutes";
@@ -19,22 +20,31 @@ import { useEffect } from "react";
 import { GetAllLevels } from "./redux/LevelsReducer";
 import { GetClassroomGroups } from "./redux/ClassroomsReducer";
 import { GetStudentsList } from "./redux/StudentsAccountsReducer";
+//
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 
 function App() {
-  const dispatch = useDispatch()
-  const role = useSelector((state) => state.newUserReducer.userInfo.role)
-  const crr_role = role
-  localStorage.setItem('role_name', crr_role)
-  
+  const dispatch = useDispatch();
+  const role = useSelector((state) => state.newUserReducer.userInfo.role);
+  const [open, setOpen] = useState(false);
+
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   useEffect(() => {
-    dispatch(GetAllLevels())
-    dispatch(GetClassroomGroups())
-    dispatch(GetStudentsList())
-  },[])
+    dispatch(GetAllLevels());
+    dispatch(GetClassroomGroups());
+    dispatch(GetStudentsList());
+  },[]);
 
   return (
     <>
       <div className="app">
+        
         <BrowserRouter>
           <Routes>
             <Route index element={<Home />} />
@@ -57,9 +67,12 @@ function App() {
                   <Route index element={<HomeDashboard />} />
                   {/* <Route path="AddAccount" element={<AddAccount />} /> */}
                   <Route path="Students" element={<Students />} />
-                  <Route path="StudentsDetails/:student_id" element={<StudentDetails/>}></Route>
+                  <Route
+                    path="StudentsDetails/:student_id"
+                    element={<StudentDetails />}
+                  ></Route>
                   <Route path="Classrooms" element={<Classrooms />} />
-                  <Route path="Levels" element={<Levels/>}/>
+                  <Route path="Levels" element={<Levels />} />
                   <Route path="Teachers" element={<Teachers />} />
                   {/* <Route path="Notifiyer" element={<Notifiyer />} /> */}
                   {/* <Route path="GraphData" element={<GraphData />} /> */}
@@ -72,7 +85,7 @@ function App() {
                   <Route path="AddAccount" element={<AddAccount />} />
                   <Route path="Students" element={<Students />} />
                   <Route path="Classrooms" element={<Classrooms />} />
-                  <Route path="Levels" element={<Levels/>}/>
+                  <Route path="Levels" element={<Levels />} />
                   <Route path="Teachers" element={<Teachers />} />
                   <Route path="Notifiyer" element={<Notifiyer />} />
                   <Route path="GraphData" element={<GraphData />} />
@@ -85,7 +98,7 @@ function App() {
                   <Route path="AddAccount" element={<AddAccount />} />
                   <Route path="Students" element={<Students />} />
                   <Route path="Classrooms" element={<Classrooms />} />
-                  <Route path="Levels" element={<Levels/>}/>
+                  <Route path="Levels" element={<Levels />} />
                   <Route path="Teachers" element={<Teachers />} />
                   <Route path="Notifiyer" element={<Notifiyer />} />
                   <Route path="GraphData" element={<GraphData />} />

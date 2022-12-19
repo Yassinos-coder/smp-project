@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,10 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Collapse from "@mui/material/Collapse";
 import TopBar from "./TopBar";
+//
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 
 const Home = () => {
   // below states for Alerts in materialUI
@@ -18,6 +22,7 @@ const Home = () => {
   const [webStatus, setWebStatus] = useState("0");
   const [backEnd, setbackEnd] = useState("0");
   const [apisServer, setapisServer] = useState("0");
+  const [open, setOpen] = useState(false);
   const signin_response = useSelector(
     (state) => state.newUserReducer.isloginCorrect
   );
@@ -26,7 +31,13 @@ const Home = () => {
   const navigate = useNavigate();
   const userID = localStorage.userID;
 
+  useEffect(() => {
+    setOpen(true);
+  },[]);
 
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   // Below LocalStorage Logic for logIn & LogOut
   if (signin_response === true && localStorage.isStillConnected === "true") {
@@ -40,7 +51,6 @@ const Home = () => {
     localStorage.setItem("isStillConnected", "false");
   }
 
-
   // Below send_inputs() sends login credentials to back-end onchange in password input
   const send_inputs = () => {
     let credentials_to_send = {
@@ -49,11 +59,10 @@ const Home = () => {
     };
     dispatch(Signin({ credentials: credentials_to_send }));
     dispatch(getUserID({ username: credentials_to_send.uname }));
-    
   };
   // below we check on response from back-end onclick in login button
   const Login = () => {
-    dispatch(GetUserData({id: localStorage.userID}))
+    dispatch(GetUserData({ id: localStorage.userID }));
     if (signin_response === true) {
       navigate(`/${userID}/Dashboard`);
       localStorage.userName = uname_input.current.value;
@@ -63,13 +72,55 @@ const Home = () => {
     }
   };
 
-
-
-
-
   return (
     <>
       <div className="home">
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"Pleace specify your role !"}
+          </DialogTitle>
+          <DialogContent>
+            <div className="buttons-dialog-app">
+              <button
+                onClick={() => {
+                  localStorage.role_name = "Student";
+                  handleClose();
+                }}
+              >
+                Student
+              </button>
+              <button
+                onClick={() => {
+                  localStorage.role_name = "Teacher";
+                  handleClose();
+                }}
+              >
+                Teacher
+              </button>
+              <button
+                onClick={() => {
+                  localStorage.role_name = "Staff";
+                  handleClose();
+                }}
+              >
+                Staff
+              </button>
+              <button
+                onClick={() => {
+                  localStorage.role_name = "Owner";
+                  handleClose();
+                }}
+              >
+                Owner
+              </button>
+            </div>
+          </DialogContent>
+        </Dialog>
         <div className="alerts-login">
           <Collapse in={LoginError}>
             <Alert
@@ -91,7 +142,12 @@ const Home = () => {
           {/* Signin Box */}
           <div className="Signin">
             <p
-              style={{ paddingBottom:'13px',color: "white", fontSize: "28px", textAlign: "center" }}
+              style={{
+                paddingBottom: "13px",
+                color: "white",
+                fontSize: "28px",
+                textAlign: "center",
+              }}
             >
               Log In
             </p>
@@ -125,11 +181,7 @@ const Home = () => {
             >
               <p>Forgot Password ?</p>
             </a>
-            <button
-              className="btn-signin"
-              onClick={Login}
-              type="submit"
-            >
+            <button className="btn-signin" onClick={Login} type="submit">
               Sign In
             </button>
             <div className="system-status">
