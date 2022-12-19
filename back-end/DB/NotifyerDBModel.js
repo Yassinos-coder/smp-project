@@ -4,12 +4,12 @@ const db = require('mongoose')
 const NotifyerModel = db.Schema({
     notif_from_user : {
         type: mongoose.Schema.Types.ObjectId,
-        ref: users,
+        ref: 'users',
         required: true
     },
     notif_to_user : {
         type: String,
-        ref: users,
+        ref: 'users',
         required: true
     },
     notif_subject : {
