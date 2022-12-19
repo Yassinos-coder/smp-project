@@ -32,7 +32,9 @@ const Home = () => {
   const userID = localStorage.userID;
 
   useEffect(() => {
-    setOpen(true);
+    if (!localStorage.role_name) {
+      setOpen(true);
+    }
   },[]);
 
   const handleClose = () => {
