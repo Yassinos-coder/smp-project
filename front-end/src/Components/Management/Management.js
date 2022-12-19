@@ -5,9 +5,9 @@ import SideBar from './SideBar'
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-
 const Management = () => {
   const role_from_redux = useSelector((state) => state.newUserReducer.userInfo.role)
+
   useEffect(() => {
     const role_from_ls = localStorage.role_name 
     if (role_from_redux === localStorage.role_name) {

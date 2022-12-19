@@ -21,24 +21,20 @@ import { GetAllLevels } from "./redux/LevelsReducer";
 import { GetClassroomGroups } from "./redux/ClassroomsReducer";
 import { GetStudentsList } from "./redux/StudentsAccountsReducer";
 //
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
+import { GetUserData } from "./redux/UserReducers";
 
 function App() {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.newUserReducer.userInfo.role);
-  const [open, setOpen] = useState(false);
 
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   useEffect(() => {
     dispatch(GetAllLevels());
     dispatch(GetClassroomGroups());
     dispatch(GetStudentsList());
+    if (localStorage.role_name) {
+      dispatch(GetUserData({ id: localStorage.userID }));
+    }
   },[]);
 
   return (

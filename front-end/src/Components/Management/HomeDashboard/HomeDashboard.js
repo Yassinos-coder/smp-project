@@ -8,9 +8,11 @@ import Tasks from "../TaskToAchieve/Tasks";
 const HomeDashboard = () => {
   const dispatch = useDispatch();
   const userID = localStorage.userID;
+
+
   useEffect(() => {
     dispatch(getTasks({ userid: userID }));
-  });
+  },[]);
 
   return (
     <>
