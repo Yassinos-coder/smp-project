@@ -1,0 +1,72 @@
+.tasktodo {
+}
+
+.header {
+    position: relative;
+    margin: auto;
+    max-width: 80%;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: gray;
+}
+
+.addtodo input{
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    width: 230%;
+    height: 3vh;
+    padding-left: 3px;
+    color: white;
+}
+
+.addtodo input::placeholder {
+    color: rgb(226, 226, 226);
+}
+
+.addbtn {
+    margin-left: 48%;
+}
+
+.addbtn button {
+    padding: 5px 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.task {
+    background-color: grey;
+    position: relative;
+    margin: auto;
+    max-width: 80%;
+    margin-top: 1%;
+    color: white;
+}
+
+.actions {
+    position: absolute;
+    margin-top: -7%;
+    margin-left: 82.2%;
+    width: 17.9%;
+    max-width: 17.9%;
+    background-color: #F0F0F0;
+}
+
+.faTasks {
+    padding-left: 18%;
+    font-size: 19px;
+    color: black;
+}
+
+.task ul > li {
+    color: black;
+    list-style: disc;
+}
+
+.faTasks:hover {
+    color: red;
+}
+
+.faUpdateTask:hover {
+    color: rgb(197, 197, 31);
+}

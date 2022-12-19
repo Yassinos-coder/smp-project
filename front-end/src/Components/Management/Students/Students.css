@@ -1,0 +1,156 @@
+.students-dash {
+    background-color: transparent;
+    width: 87.1%;
+    height: 900px;
+    margin-top: -47.35%;
+    margin-left: 12.95%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.top-box {
+    background-color: grey;
+    margin: auto;
+    max-width: 85%;
+    height: 70px;
+    position: relative;
+    top: 4%;
+    border-radius: 5px;
+    
+}
+
+.search-box {
+    padding-top: 1%;
+    max-width: 27%;
+}
+
+.top-box > div >p {
+    margin-left: 1%;
+    color: white;
+    font-size: 19px;
+    display: inline-block;
+}
+
+.srch-input {
+    margin-left: 1.5%;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    outline: none;
+    padding-left: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 16px;
+}
+
+.data-table {
+    font-size: 17px;
+    margin: auto;
+    max-width: 85%;
+    position: relative;
+    top: 5%;
+    color: black;
+}
+
+thead, tbody {
+    background-color: grey;
+}
+
+td {
+    padding-left: 18px;
+
+}
+
+
+.hr-students {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 4%;
+    height: 2px;
+    left: 27%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.filter-by-level {
+    position: relative;
+    max-width: 18%;
+    top: -54%;
+    left: 31%;
+}
+
+.filter-by-level select {
+    border: none;
+    border-radius: 5px;
+    height: 3.8vh;
+    font-size: 16px;
+    width: 83%;
+}
+
+.hr-students-2 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 4%;
+    height: 2px;
+    left: 47%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.filter-by-group {
+    position: relative;
+    max-width: 18%;
+    top: -106%;
+    left: 52%;
+}
+
+
+.filter-by-group select {
+    border: none;
+    border-radius: 5px;
+    height: 3.8vh;
+    font-size: 16px;
+    width: 83%;
+}
+
+.hr-students-3 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 4%;
+    height: 2px;
+    left: 68%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.AddStudent {
+    position: relative;
+    top: -161%;
+    left: 73%;
+    max-width: 10%;
+}
+
+.btn-add-student {
+    height: 3.8vh;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-add-student:hover {
+    background-color: rgb(185, 185, 56);
+}
+
+.fa-add-student {
+    margin-left: -5%;
+    margin-right: 3%;
+}

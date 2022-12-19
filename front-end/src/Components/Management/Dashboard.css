@@ -1,0 +1,121 @@
+.MainDash {
+    background-color: white;
+    margin: auto;
+    margin-top: 2%;
+    max-width: 99%;
+    height: 900px;
+    border-radius: 8px;
+}
+
+.hr-menu {
+    position: relative;
+    background-color: rgba(32, 32, 32, 0.541);
+    width: 13%;
+    height: 900px;
+}
+
+.top-hr-menu {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    top: 1%;
+}
+
+.top-hr-menu img{
+    border-radius: 44%;
+    width: 22%;
+    height: 51px;
+}
+
+.p-1st-line {
+    top: 1%;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.p-2nd-line {
+    font-size: 16px;
+    margin-top: -12%;
+    margin-left: 26%;
+}
+
+.hrline-hr-menu {
+    background-color: white;
+    top: 2%;
+    margin: auto;
+    height: 1px;
+    position: relative;
+    width: 80%;
+}
+
+.nav {
+    position: relative;
+}
+
+.ul-div {
+    margin-top: 15%;
+}
+
+.ul-ul li {
+    list-style: none;
+    margin: auto;
+    text-align: left;
+    width: 100%;
+    height: 62px;
+    margin-left: 3%;
+}
+
+.ul-ul >li> a { 
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 50px;
+    padding: 5px 30px;
+    border-radius: 8px;
+    color: white;
+}
+
+.ul-ul >li> a:hover {
+    background-color: rgba(32, 32, 32, 0.541);
+}
+
+.fa {
+    margin-right: 5%;
+}
+
+.hr-footer {
+    background-color: white;
+    top: 2%;
+    margin: auto;
+    position: relative;
+    height: 1px;
+    width: 84%;
+}
+
+.btn-signout-dash {
+    margin-top: 64%;
+    font-size: 18px;
+    margin-left: 18%;
+    padding: 1px 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-signout-dash:hover {
+    color: white;
+    background-color: red;
+}
+
+.text-menu-footer-dash {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 13%;
+    color: white;
+}
+
+/*  Boxes CSS  */
+.middle-main {
+
+}
+
+

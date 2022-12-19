@@ -1,0 +1,16 @@
+# Basic set up for three package managers
+
+version: 2
+updates:
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/front-end"
+    schedule:
+      interval: "weekly"
+
+  # Maintain dependencies for Composer
+  - package-ecosystem: "npm"
+    directory: "/back-end"
+    schedule:
+      interval: "weekly"

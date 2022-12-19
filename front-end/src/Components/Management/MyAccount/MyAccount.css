@@ -1,0 +1,200 @@
+.MyAccount-Dash {
+    margin: auto;
+    width: 87.1%;
+    height: 900px;
+    margin-top: -47.35%;
+    margin-left: 12.95%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.UserData-Box {
+    position: relative;
+    top: 5%;
+    left: 6%;
+    background: rgb(84,84,84);
+    background: -moz-linear-gradient(0deg, rgba(84,84,84,1) 23%, rgba(210,210,210,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(84,84,84,1) 23%, rgba(210,210,210,1) 100%);
+    background: linear-gradient(0deg, rgba(84,84,84,1) 23%, rgba(210,210,210,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#545454",endColorstr="#d2d2d2",GradientType=1);
+    border-radius: 8px;
+    width: 88%;
+    height: 800px;
+}
+
+.userProfilePic {
+    position: relative;
+    top: 3%;
+    left: 9%;
+    width: 25%;
+    height: 285px;
+}
+
+.prf-pic-pa {
+    position: relative;
+    top: 8%;
+    width: 230px;
+    left: 15%;
+    border-radius: 6%;
+    height: 210px;
+}
+
+.user-data-below-pic {
+    position: relative;
+    border-radius: 10px;
+    top: 3%;
+    left: 3%;
+    width: 35%;
+    height: 41vh;
+}
+
+.ps {
+    background-color: white;
+    margin: auto;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 17px;
+    height: 4vh;
+    position: relative;
+    top: -4%;
+    width: 80%;
+}
+
+.hr-pa {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 48%;
+    height: 2px;
+    left: 26%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.new-email {
+    position: relative;
+    top: -75%;
+    left: 25%;
+    margin: auto;
+    width: 45%;
+    height: 44vh;
+    border-radius: 5px;
+}
+
+
+.newemail-addr input {
+    display: block;
+    margin-left: 3%;
+    border-radius: 5px;
+    border: none;
+    width: 40%;
+    font-size: 15px;
+    padding-top: 2px;
+    padding-left: 6px;
+    height: 3vh;
+}
+
+.newemail-addr label {
+ font-size: 18px;  
+ font-weight: 600; 
+ padding-left: 3%;
+}
+
+.newemail-addr button {
+    font-size: 18px;
+    padding: 1px 20px;
+    border: none;
+    margin-top: 2%;
+    margin-left: 11%;
+    border-radius: 5px;
+}
+
+.current-email {
+    max-width: 48%;
+    font-size: 18px;
+    margin-left: 50%;
+    margin-top: 5%;
+    position: absolute;
+}
+
+.hr-update-info-section {
+    margin: auto;
+    color: black;
+    background-color: black;
+    width: 85%;
+    height: 2px;
+    outline: none;
+    border: none;
+    margin-top: 9%;
+}
+
+.fa-pa {
+    margin-right: 2%;
+    color: red;
+}
+
+.change-password {
+    margin-top: 7%;
+}
+
+.change-password p {
+    font-size: 18px;  
+    padding-left: 3%;
+}
+
+.change-password label {
+    font-size: 17px;
+    font-weight: 600;
+    padding-left: 9%;
+}
+
+.change-password  input{
+    display: block;
+    margin-left: 9%;
+    border-radius: 5px;
+    border: none;
+    width: 40%;
+    font-size: 15px;
+    padding-top: 2px;
+    padding-left: 6px;
+    height: 3vh;
+}
+
+.ul-pass-tips {
+    max-width: 45%;
+    font-size: 18px;
+    margin-left: 54%;
+    margin-top: -20%;
+    position: absolute;
+}
+
+.ul-pass-tips li {
+    list-style:  auto;
+    font-size: 13px;
+}
+
+.change-password button {
+    font-size: 18px;
+    padding: 1px 20px;
+    border: none;
+    margin-top: 5%;
+    margin-left: 37%;
+    border-radius: 5px;
+}
+.change-password button:hover {
+    background-color: rgb(185, 185, 56);
+}
+
+.newemail-addr button:hover {
+    background-color: rgb(185, 185, 56);
+}
+
+
+.alerts-myaccount {
+    margin-left: 28%;
+    margin-top: 4%;
+    position: absolute;
+    z-index: 1;
+    width: 20%;
+}

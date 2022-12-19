@@ -1,0 +1,111 @@
+
+.bug-report {
+    background-color: white;
+    border-radius: 10px;
+    max-width: 40%;
+    height: 500px;
+    margin-top: 10%;
+    margin-left: 28%;
+}
+
+.bug-report h2 {
+    text-align: center;
+}
+.bug-report p {
+    text-align: center;
+    margin-top: 0%;
+}
+
+.bug-report-form {
+    margin: auto;
+    width: 90%;
+    margin-top: 6%;
+}
+
+.sbjct-form {
+    margin: auto;
+    width: 90%;
+    margin-top: 3%;
+}
+.sbjct-form input {
+    display: block;
+    margin: auto;
+    width: 92%;
+    margin-left: 3%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 214, 214);
+    font-size: 16px;
+    color: black;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+}
+.sbjct-form label {
+    margin-left: 3%;
+}
+
+.msg {
+    margin: auto;
+    width: 90%;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+.msg textarea {
+    display: block;
+    margin: auto;
+    width: 93%;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 214, 214);
+    font-size: 15px;
+    color: black;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+}
+.msg label {
+    margin-left: 3.4%;
+}
+
+.bug-report-form input {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 214, 214);
+    margin-left: 1%;
+    width: 30%;
+    font-size: 16px;
+    color: black;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+}
+
+.bug-report-form label {
+    margin-left: 2.5%;
+}
+
+.btn-submit-bugreport {
+    margin-left: 40%;
+    margin-top: 3%;
+    padding: 6px 45px;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-submit-bugreport:hover {
+    background-color: greenyellow;
+}
+
+.topbar-cmp {
+    position: absolute;
+    margin-top: -10%;
+}
+
+.alert-in-bug-report {
+    margin-top: -4%;
+}

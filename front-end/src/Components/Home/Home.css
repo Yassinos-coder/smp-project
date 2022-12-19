@@ -1,0 +1,188 @@
+body {
+  /*  background-image: url('../../assets/imgs/background3.jpg'); */
+    background-image: url('../../assets/imgs/pexels-andrea-piacquadio-3769120.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.homepage-header {
+    background-color: rgba(128, 128, 128, 0.445);
+    position: fixed;
+    margin-top: 1%;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+}
+
+.homepage-title {
+    max-width: 20%;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 2%;
+    margin-top: 0.2%;
+    font-weight: 700;
+}
+
+.homepage-title:hover {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.navBar-btn {
+    max-width: 30%;
+    margin-top: -2.3%;
+    margin-left: 65%;
+    height: 38px;
+}
+
+.ul-div-home {
+    margin-top: 1%;
+} 
+
+.ul-div-home .ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.ul-div-home .ul > li > a >button {
+    padding: 3px 23px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(32, 32, 32);
+    cursor: pointer;
+}
+
+.ul-div-home .ul > li > a >button:hover {
+    background-color: rgb(185, 185, 56);
+}
+
+.ul-div-home .ul > li > a >button:active {
+    background-color: rgb(185, 185, 56);
+}
+
+.userBox {
+    position: absolute;
+    background-color: rgba(32, 32, 32, 0.541);
+    margin-left: 48%;
+    margin-top: 13%;
+    height: 465px;
+    width: 22%;
+    border-radius: 10px;
+}
+.labels {
+    font-size: 18px;
+    padding-left: 16%;
+}
+.inputs {
+    display: block;
+    padding-left: 1%;
+    width: 68%;
+    margin: auto;
+    font-size: 17px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    outline: none;
+}
+
+
+.hr {
+    background-color: white;
+    color: white;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 48%;
+    height: 2px;
+    left: 29%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.Signin {
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+    height: 428px;
+    margin: auto;
+    max-width: 100%;
+}
+
+.signin-input {
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+.signin-label {
+    color: white;
+}
+.btn-signin{
+    width: 29%;
+    height: 33px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: 6.2%;
+    margin-left: 32%;
+    border: none;
+    background-color: grey;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.forgot-password {
+    text-decoration: none;
+}
+
+.forgot-password p {
+    padding-left: 52%;
+}
+
+.forgot-password:hover {
+    color: rgb(185, 185, 56);
+}
+
+
+.facircle {
+    padding-left: 1%;
+}
+
+.system-status {
+    background-color: rgba(196, 193, 193, 0.685);
+    border-radius: 10px;
+    margin-top: 12.4%;
+    width: 100%;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+
+
+@media (max-width: 575.98px) { 
+}
+
+/* Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) { 
+   
+ }
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { 
+    
+ }
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) { 
+   
+ }
+
+.alerts-login {
+    margin-left: 48.8%;
+    margin-top: 8%;
+    position: absolute;
+    z-index: 1;
+    width: 20%;
+}

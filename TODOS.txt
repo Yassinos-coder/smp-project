@@ -1,0 +1,20 @@
+Front-End
+	1- Home
+	2- Signup
+	3- Signin
+	4- Dashboard
+	5- Student Profile
+	6- Teacher Profile
+	7- Class Profile
+Back-End / APIs
+	1- Signup
+	2- Signin
+	3- Data Displayed on DashBoard
+	4- Student Profile
+	5-	Teacher Profile
+	6- Class Profile
+
+Todos : 
+	2- Added More Details Component to students Lists.
+	3- Add Calendar, Notifications.
+	4- Add choice on use Effect in Login Page

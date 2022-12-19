@@ -1,0 +1,63 @@
+/*  Boxes CSS  */
+.HD-Boxes {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.box1 {
+    margin-top: -44%;
+    border: 2px black solid;
+    width: 28%;
+    height: 320px;
+    margin-left: 16%;
+    border-radius: 10px;
+}
+
+.box1 > table , tr{
+    border-radius: 8px;
+}
+
+.box1-table {
+    margin: auto;
+    margin-top: 2%;
+    width: 90%;
+}
+
+.box2 {
+    margin-top: -44%;
+    border: 2px black solid;
+    width: 28%;
+    height: 320px;
+    margin-left: 16%;
+    border-radius: 10px;
+}
+
+.box3 {
+    margin-top: -21%;
+    border: 2px black solid;
+    width: 28%;
+    height: 320px;
+    margin-left: 16%;
+    border-radius: 10px;
+}
+
+.box4 {
+    margin-top: -21%;
+    border: 2px black solid;
+    width: 28%;
+    height: 320px;
+    margin-left: 16%;
+    border-radius: 10px;
+}
+
+
+.calendar {
+    max-width: 100%;
+    top: 1%;
+    position: relative;
+    height: 30vh;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
