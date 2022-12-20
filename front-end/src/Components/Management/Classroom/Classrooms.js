@@ -59,7 +59,6 @@ const Classrooms = () => {
   };
 
   const handleClose = () => {
-    console.log(newClass);
     dispatch(AddClassroomGroup({ newClass: newClass }));
     setOpen(false);
   };
