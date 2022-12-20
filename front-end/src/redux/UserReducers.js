@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+export const getAllUsersList = createAsyncThunk('account/getAllUsersList', async() => {
+    return axios.get('http://localhost:2003/GetAllUsersList')
+    .then((res) => {return res.data})
+    .catch((err) => {console.log(err)})
+})
+
 export const newUserReducer = createAsyncThunk('accounts/newUserReducer', async (newUser) => {
     return axios.post('http://localhost:2003/AddAccount', newUser)
     .then((res) => {return res.data})
@@ -41,6 +47,7 @@ const newUserHandler = createSlice({
     name: 'userDataHandler',
     initialState : {
         isloginCorrect: false,
+        allUsersList: [],
         userInfo: [],
         Status:'',
         Error:'',
@@ -50,6 +57,17 @@ const newUserHandler = createSlice({
     reducers:{
     },
     extraReducers: {
+        [getAllUsersList.fulfilled]: (state,action) => {
+            state.allUsersList = action.payload
+            state.Status = 'Accepted'
+        },
+        [getAllUsersList.pending]: (state) => {
+            state.Status = 'Pending...'
+        },
+        [getAllUsersList.rejected]: (state, action) => {
+            state.allUsersList = action.payload
+            state.Error = 'Rejected'
+        },
         [newUserReducer.fulfilled]: (state) => {
             state.Status = 'Accepted'
         },

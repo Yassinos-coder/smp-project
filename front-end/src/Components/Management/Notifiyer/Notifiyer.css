@@ -1,0 +1,143 @@
+.MainNotifyer {
+    width: 87.1%;
+    height: 900px;
+    margin-top: -47.35%;
+    margin-left: 12.95%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.NotifBody {
+    position: relative;
+    top: 3%;
+    margin: auto;
+    border: 1px black solid;
+    max-width: 85%;
+    height: 90vh;
+    border-radius: 8px;
+}
+
+.hr-notif-1 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 57%;
+    height: 2px;
+    left: 22%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.sendNotifSpecificUsr {
+    position: relative;
+    background: rgb(84,84,84);
+    background: linear-gradient(0deg, rgba(84,84,84,1) 23%, rgba(210,210,210,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#545454",endColorstr="#d2d2d2",GradientType=1);
+    border-radius: 8px;
+    max-width: 47%;
+    margin: auto;
+    height: 42vh;
+    left: 25%;
+    top: 7%;
+}
+
+.title-notifyer {
+    font-size: 24px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    width: 75%;
+}
+
+.title-notifyer > p {
+    padding-left: 3%;
+}
+
+.faNotif {
+    margin-right: 1%;
+}
+
+.toUsr {
+    margin-left: 6%;
+}
+
+.toUsr label {
+    font-size: 20px;
+}
+
+.toUsr input {
+    display: block;
+    margin-left: 0%;
+    border: none;
+    border-radius: 8px;
+    width: 83%;
+    height: 4vh;
+    padding-left: 2%;
+    font-size: 17px;
+    background-color: #EFEFEF;
+    color: black;
+}
+
+.message-subject {
+    margin-left: 6%;
+    max-width: 80%;
+    border-radius: 8px;
+    margin-top: 2%;
+}
+
+.message-subject label {
+    font-size: 20px;
+}
+
+.message-subject input {
+    display: block;
+    margin-left: 0%;
+    border: none;
+    border-radius: 8px;
+    width: 98%;
+    height: 4vh;
+    padding-left: 2%;
+    font-size: 17px;
+    background-color: #EFEFEF;
+    color: black;
+}
+
+.message-subject input::placeholder {
+    color: grey;
+}
+
+.msg-to-send {
+    max-width: 80%;
+    margin-left: 6%;
+}
+
+.msg-to-send p {
+    font-size: 20px;
+}
+
+.msg-to-send textarea {
+    width: 98%;
+    border-radius: 8px;
+    height: 10vh;
+    padding-left: 2%;
+    padding-top: 2%;
+    font-size: 15px;
+    resize: none;
+}
+
+.SendButton {
+    margin-left: 35%;
+    max-width: 20%;
+}
+
+.SendButton button{ 
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.SendButton button:hover{
+    background-color: rgb(185, 185, 56);
+}

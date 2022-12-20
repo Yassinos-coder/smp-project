@@ -1,8 +1,16 @@
 const { Router } = require('express')
-const StudentsDBModel = require('../DB/StudentsAccountsDBModel')
 const UsersDBModel = require('../DB/UsersDBModel')
 
 const router = Router()
+
+router.get('/GetAllUsersList', async(req, res) => {
+    try {
+        const allUsers = await UsersDBModel.find({},{_id:0,username:true});
+        res.send(allUsers)
+    } catch (err) {
+        console.error('Error Regarding GetAllUsersList', err)
+    }
+})
 
 router.post('/AddAccount', async (req,res) => {
     let user_data = req.body

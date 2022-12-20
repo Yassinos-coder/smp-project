@@ -23,7 +23,7 @@ app.use(StudentsRouter)
 app.use(ClassroomsRouter)
 app.use(LevelRouter)
 app.use(TaskRouter)
-
+app.use(NotifyerRouter)
 
 app.get('/', (req, res) => {
     res.send(`<h1> Get  outta here ! what you tryna do !?!?

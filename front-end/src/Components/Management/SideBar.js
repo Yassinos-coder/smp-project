@@ -32,6 +32,7 @@ const SideBar = () => {
 
   const Signout = () => {
     localStorage.isStillConnected = false;
+    console.clear()
     localStorage.clear();
     navigate("/");
   };

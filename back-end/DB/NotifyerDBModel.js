@@ -3,7 +3,7 @@ const db = require('mongoose')
 
 const NotifyerModel = db.Schema({
     notif_from_user : {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'users',
         required: true
     },
@@ -25,4 +25,4 @@ const NotifyerModel = db.Schema({
 
 const NotifyerDBModel = mongoose.model('users_notifications', NotifyerModel)
 
-module.exports = NotifyerModel
+module.exports = NotifyerDBModel

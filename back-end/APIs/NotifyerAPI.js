@@ -14,6 +14,7 @@ router.get('/GetNotif/:username', async(req, res) => {
 
 router.post('/SendNotif', async(req, res) => {
     let newNotif = req.body
+    console.log(newNotif)
     try {
         const Notif = new NotifyerDBModel(newNotif)
         Notif.save()
