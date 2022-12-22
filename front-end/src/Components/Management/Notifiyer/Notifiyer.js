@@ -14,6 +14,7 @@ const Notifiyer = () => {
     setNewNotif({ ...newNotifData, notif_from_user: username });
   },[newNotifData,username])
 
+
   return (
     <>
       <div className="MainNotifyer">

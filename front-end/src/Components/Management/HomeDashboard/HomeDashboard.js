@@ -1,25 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Dashboard.css";
 import "./HomeDashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../../redux/tasksReducer";
 import Tasks from "../TaskToAchieve/Tasks";
 import '@fortawesome/free-solid-svg-icons'
-import { faEnvelopeCircleCheck, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelopeCircleCheck, faArrowRightLong, faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getNotify } from "../../../redux/NotifyerReducer";
+import { getNotify, markRead } from "../../../redux/NotifyerReducer";
 
 const HomeDashboard = () => {
   const dispatch = useDispatch();
   const userID = localStorage.userID;
   const username = localStorage.getItem('userName')
   const NotifByUsr = useSelector((state ) => state.NotifyerReducer.AllNotif)
-
+  const [faNotif, setFaNotif ] = useState(faEnvelopeCircleCheck)
 
   useEffect(() => {
     dispatch(getTasks({ userid: userID }));
     dispatch(getNotify({username: username}))
+    NotifByUsr.map((notif) => {
+      if (notif.read === false) {
+        setFaNotif(faEnvelopeCircleCheck)
+      } else {
+        setFaNotif(faEnvelopeOpen)
+      }
+    })
   },[NotifByUsr]);
+
+  const markReadHandler = (i) => {
+    NotifByUsr.map((notif) => {
+      if (notif === i) {
+        if (notif.read === false) {
+          dispatch(markRead({notifid:i._id, username:username, readUpdate:true}))
+          setFaNotif(faEnvelopeOpen)
+        } else {
+          dispatch(markRead({notifid:i._id, username:username, readUpdate:false}))
+          setFaNotif(faEnvelopeCircleCheck)
+        }
+      }
+    })
+  }
 
   return (
     <>
@@ -125,7 +146,7 @@ const HomeDashboard = () => {
             {
               NotifByUsr.map((notif, index) => (
                 <div className="notif">
-                  <FontAwesomeIcon className="faNotif" icon={faEnvelopeCircleCheck} />
+                  <FontAwesomeIcon onClick={()=> {markReadHandler(notif)}} className="faNotif" icon={faNotif} />
                   <p className="notfi_from_usr"> {notif.notif_from_user} :</p>
                   <p className="notif_sbjct"> {notif.notif_subject} </p>  
                   <p className="notif_msg"> 

@@ -36,5 +36,19 @@ router.post('/DeleteNotif/:username/:notifID', async (req, res) => {
     }
 })
 
+router.post('/markRead/:username/:notifid', async(req, res) => {
+    let notifid = req.params.notifid
+    let username = req.params.username
+    let readUpdate = req.body
+    console.log(readUpdate)
+    try {
+        await NotifyerDBModel.updateOne({_id: notifid, read:readUpdate.readUpdate})
+        const newNotifList = await NotifyerDBModel.find({notif_to_user: username})
+        console.log(newNotifList)
+        res.send(newNotifList)
+    } catch (err) {
+        console.error('Error Regarding MarkReadAPI', err)
+    }
+})
 
 module.exports = router

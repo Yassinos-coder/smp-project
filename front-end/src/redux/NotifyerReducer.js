@@ -20,6 +20,13 @@ export const deleteNotif = createAsyncThunk('notif/deleteNotif', async({username
     .catch((err) => {console.error(err)})
 })
 
+export const markRead = createAsyncThunk('notif/markRead', async({username, notifid, readUpdate}) => {
+    console.log(username, notifid, readUpdate)
+    return axios.post(`http://localhost:2003/markRead/${username}/${notifid}`, {readUpdate})
+    .then((res) => {return res.data})
+    .catch((err) => {console.error(err)})
+})
+
 
 
 const NotificationsHandler = createSlice({
@@ -61,6 +68,17 @@ const NotificationsHandler = createSlice({
             state.Status = 'Pending'
         },
         [deleteNotif.rejected] : (state, action) => {
+            state.AllNotif = action.payload
+            state.Status = 'Rejected'
+        },
+        [markRead.fulfilled] : (state, action) => {
+            state.AllNotif = action.payload
+            state.Status = 'Accepted'
+        },
+        [markRead.pending] : (state) => {
+            state.Status = 'Pending'
+        },
+        [markRead.rejected] : (state, action) => {
             state.AllNotif = action.payload
             state.Status = 'Rejected'
         },

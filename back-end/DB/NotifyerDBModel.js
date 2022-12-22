@@ -20,6 +20,10 @@ const NotifyerModel = db.Schema({
         type: String,
         required: true
     },
+    read : {
+        type: Boolean,
+        required: true
+    },
 })
 
 
