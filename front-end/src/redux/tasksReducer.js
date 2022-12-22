@@ -1,27 +1,27 @@
 import {  createSlice, createAsyncThunk  } from '@reduxjs/toolkit'
 import axios from 'axios'
-
+const API_URL = 'http://localhost:2003'
 
 export const getTasks = createAsyncThunk('tasks/getTasks', async({userid}) => {
-    return axios.get(`http://localhost:2003/getTasks/${userid}`)
+    return axios.get(`${API_URL}/getTasks/${userid}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const AddTask = createAsyncThunk('tasks/AddTask', async({taskData}) => {
-    return axios.post('http://localhost:2003/AddTask', taskData)
+    return axios.post(`${API_URL}/AddTask`, taskData)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const deleteTask = createAsyncThunk('tasks/deleteTask', async({userid, taskid}) => {
-    return axios.post(`http://localhost:2003/deleteTask/${userid}/${taskid}`)
+    return axios.post(`${API_URL}/deleteTask/${userid}/${taskid}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const modifyTask = createAsyncThunk('tasks/modifyTask', async({userID, taskID, updatedTask}) => {
-    return axios.post(`http://localhost:2003/modifyTask/${userID}/${taskID}`, {updatedTask})
+    return axios.post(`${API_URL}/modifyTask/${userID}/${taskID}`, {updatedTask})
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

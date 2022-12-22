@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-
+const API_URL = 'http://localhost:2003'
 
 export const AddStudent = createAsyncThunk('students/AddStudent', async({students_info}) => {
-    return axios.post('http://localhost:2003/AddStudent', students_info)
+    return axios.post(`${API_URL}/AddStudent`, students_info)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const GetStudentsList = createAsyncThunk('students/GetStudentsList', async()=> {
-    return axios.get('http://localhost:2003/GetStudents')
+    return axios.get(`${API_URL}/GetStudents`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

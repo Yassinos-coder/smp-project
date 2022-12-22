@@ -1,28 +1,29 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
+const API_URL = 'http://localhost:2003'
 
 export const getNotify = createAsyncThunk('notif/getNotify', async({username}) => {
-    return axios.get(`http://localhost:2003/GetNotif/${username}`)
+    return axios.get(`${API_URL}/GetNotif/${username}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const sendNotif = createAsyncThunk('notif/sendNotif', async(newNotif) => {
-    return axios.post(`http://localhost:2003/SendNotif`, newNotif)
+    return axios.post(`${API_URL}/SendNotif`, newNotif)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 
 export const deleteNotif = createAsyncThunk('notif/deleteNotif', async({username, notifID}) => {
-    return axios.post(`http://localhost:2003/GetNotify/${username}/${notifID}`)
+    return axios.post(`${API_URL}/GetNotify/${username}/${notifID}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const markRead = createAsyncThunk('notif/markRead', async({username, notifid, readUpdate}) => {
     console.log(username, notifid, readUpdate)
-    return axios.post(`http://localhost:2003/markRead/${username}/${notifid}`, {readUpdate})
+    return axios.post(`${API_URL}/markRead/${username}/${notifid}`, {readUpdate})
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

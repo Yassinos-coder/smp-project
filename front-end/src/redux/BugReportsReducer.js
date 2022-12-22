@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+const API_URL = 'http://localhost:2003/'
+
 
 
 export const reportBug = createAsyncThunk('System/reportBug', async(bug_data) => {
-    return axios.post('http://localhost:2003/reportBug', bug_data)
+    return axios.post(`${API_URL}reportBug`, bug_data)
     .then((res) => {return res.data})
     .catch((err) =>{console.error(err.message)})
 })

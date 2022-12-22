@@ -1,44 +1,45 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+const API_URL = 'http://localhost:2003'
 
 export const getAllUsersList = createAsyncThunk('account/getAllUsersList', async() => {
-    return axios.get('http://localhost:2003/GetAllUsersList')
+    return axios.get(`${API_URL}/GetAllUsersList`)
     .then((res) => {return res.data})
     .catch((err) => {console.log(err)})
 })
 
 export const newUserReducer = createAsyncThunk('accounts/newUserReducer', async (newUser) => {
-    return axios.post('http://localhost:2003/AddAccount', newUser)
+    return axios.post(`${API_URL}/AddAccount`, newUser)
     .then((res) => {return res.data})
     .catch((err) =>{console.error(err.message)})
 })
 
 export const Signin = createAsyncThunk('accounts/Signin', async({credentials}) => {
-    return axios.post('http://localhost:2003/Signin', credentials)
+    return axios.post(`${API_URL}/Signin`, credentials)
     .then((res) => {return res.data})
     .catch((err) =>{console.error(err.message)})
 })
 
 export const getUserID = createAsyncThunk('accounts/getUserID', async({username}) => {
-    return axios.get(`http://localhost:2003/GetUserID/${username}`)
+    return axios.get(`${API_URL}/GetUserID/${username}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const GetUserData = createAsyncThunk('accounts/GetUserData', async({id})=> {
-    return axios.get(`http://localhost:2003/GetUserData/${id}`)
+    return axios.get(`${API_URL}/GetUserData/${id}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const UpdateMail = createAsyncThunk('accounts/UpdateMail', async({id, newMail}) => {
-    return axios.post(`http://localhost:2003/updateMail/${id}`, {newMail})
+    return axios.post(`${API_URL}/updateMail/${id}`, {newMail})
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const UpdatePassword = createAsyncThunk('accounts/UpdatePassword', async({id, newPassword}) => {
-    return axios.post(`http://localhost:2003/updatePassword/${id}`, {newPassword})
+    return axios.post(`${API_URL}/updatePassword/${id}`, {newPassword})
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

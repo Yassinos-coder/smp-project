@@ -14,7 +14,6 @@ import Collapse from "@mui/material/Collapse";
 
 const MyAccount = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
   const [EmailUpdateSuccess, setEmailUpdateSuccess] = useState(false);
   const [PasswordUpdateSuccess, setPasswordUpdateSuccess] = useState(false);
 

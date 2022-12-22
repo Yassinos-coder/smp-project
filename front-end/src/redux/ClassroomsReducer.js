@@ -1,27 +1,28 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from 'axios'
+const API_URL = 'http://localhost:2003'
 
 export const GetClassroomGroups = createAsyncThunk('classrooms/GetClassroomGroups', async() => {
-    return axios.get('http://localhost:2003/GetClassrooms')
+    return axios.get(`${API_URL}/GetClassrooms`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const AddClassroomGroup = createAsyncThunk('classrooms/AddClassroomGroup', async({newClass}) => {
-    return axios.post('http://localhost:2003/AddClassroom', newClass)
+    return axios.post(`${API_URL}/AddClassroom`, newClass)
     .then((res) => {return res.data})
     .chatch((err) => {console.error(err)})
 })
 
 export const deleteClassroom = createAsyncThunk('classrooms/deleteClassroom', async({classroomcode, levelcode}) => {
     console.log(classroomcode, levelcode)
-    return axios.post(`http://localhost:2003/DeleteClassroom/${classroomcode}/${levelcode}`)
+    return axios.post(`${API_URL}/DeleteClassroom/${classroomcode}/${levelcode}`)
     .then((res) => {return res.data})
     .catch((err) => console.error(err))
 }) 
 
 export const updateClassroom = createAsyncThunk('classrooms/updateClassroom', async({classroomcode, levelcode, updatedClassroom}) => {
-    return axios.post(`http://localhost:2003/EditClassroom/${classroomcode}/${levelcode}`, updatedClassroom)
+    return axios.post(`${API_URL}/EditClassroom/${classroomcode}/${levelcode}`, updatedClassroom)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

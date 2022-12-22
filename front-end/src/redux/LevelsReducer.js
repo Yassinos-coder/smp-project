@@ -1,27 +1,28 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import axios from 'axios'
+const API_URL = 'http://localhost:2003'
 
 export const GetAllLevels = createAsyncThunk('levels/GetAllLevels', async() => {
-    return axios.get('http://localhost:2003/GetLevels')
+    return axios.get(`${API_URL}/GetLevels`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 
 export const AddLevel = createAsyncThunk('levels/AddLevel', async({levelData}) => {
-    return axios.post('http://localhost:2003/AddLevel', levelData)
+    return axios.post(`${API_URL}/AddLevel`, levelData)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const deleteLevel = createAsyncThunk('levels/deleteLevel', async({deleteLevel}) => {
-    return axios.post(`http://localhost:2003/DeleteLevel/${deleteLevel}`)
+    return axios.post(`${API_URL}/DeleteLevel/${deleteLevel}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
 export const editLevel = createAsyncThunk('levels/editLevel', async({levelToEdit, newLevelData}) => {
-    return axios.post(`http://localhost:2003/EditLevel/${levelToEdit}`, newLevelData)
+    return axios.post(`${API_URL}/EditLevel/${levelToEdit}`, newLevelData)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
