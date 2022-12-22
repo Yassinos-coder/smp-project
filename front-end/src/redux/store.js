@@ -4,6 +4,7 @@ import StudentsAccountsReducer from './StudentsAccountsReducer'
 import LevelsHandlerReducer from './LevelsReducer'
 import ClassroomsHandlerReducer from './ClassroomsReducer'
 import tasksReducer from './tasksReducer'
+import NotifyerReducer from './NotifyerReducer'
 
 export const Store = configureStore({
   reducer: {
@@ -11,7 +12,9 @@ export const Store = configureStore({
     StudentsAccountsHandler : StudentsAccountsReducer,
     LevelsReducer: LevelsHandlerReducer,
     ClassroomsReducer: ClassroomsHandlerReducer,
-    TaskReduder: tasksReducer
+    TaskReduder: tasksReducer,
+    NotifyerReducer: NotifyerReducer,
+
   },
 })
 

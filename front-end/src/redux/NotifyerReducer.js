@@ -2,12 +2,12 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const getNotify = createAsyncThunk('notif/getNotify', async({username}) => {
-    return axios.get(`http://localhost:2003/GetNotify/${username}`)
+    return axios.get(`http://localhost:2003/GetNotif/${username}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
-export const sendNotif = createAsyncThunk('notif/sendNotif', async({newNotif}) => {
+export const sendNotif = createAsyncThunk('notif/sendNotif', async(newNotif) => {
     return axios.post(`http://localhost:2003/SendNotif`, newNotif)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})

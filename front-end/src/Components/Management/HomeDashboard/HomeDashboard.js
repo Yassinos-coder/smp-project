@@ -1,23 +1,30 @@
 import React, { useEffect } from "react";
 import "../Dashboard.css";
 import "./HomeDashboard.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../../redux/tasksReducer";
 import Tasks from "../TaskToAchieve/Tasks";
+import '@fortawesome/free-solid-svg-icons'
+import { faEnvelopeCircleCheck, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getNotify } from "../../../redux/NotifyerReducer";
 
 const HomeDashboard = () => {
   const dispatch = useDispatch();
   const userID = localStorage.userID;
+  const username = localStorage.getItem('userName')
+  const NotifByUsr = useSelector((state ) => state.NotifyerReducer.AllNotif)
 
 
   useEffect(() => {
     dispatch(getTasks({ userid: userID }));
-  },[]);
+    dispatch(getNotify({username: username}))
+  },[NotifByUsr]);
 
   return (
     <>
       <div className="HD-Boxes">
-        <div className="box1">
+        <div className="box1">  {/*    School Data */}
           <h3
             style={{
               fontSize: "20px",
@@ -90,7 +97,7 @@ const HomeDashboard = () => {
             </thead>
           </table>
         </div>
-        <div className="box2">
+        <div className="box2"> {/*   Calendar */}
           <h3
             style={{
               fontSize: "20px",
@@ -103,7 +110,7 @@ const HomeDashboard = () => {
           </h3>
           <div className="calendar"></div>
         </div>
-        <div className="box3">
+        <div className="box3">  {/*   Notifications */}
           <h3
             style={{
               fontSize: "20px",
@@ -114,8 +121,22 @@ const HomeDashboard = () => {
           >
             Notifications :
           </h3>
+          <div className="display-notif">
+            {
+              NotifByUsr.map((notif, index) => (
+                <div className="notif">
+                  <FontAwesomeIcon className="faNotif" icon={faEnvelopeCircleCheck} />
+                  <p className="notfi_from_usr"> {notif.notif_from_user} :</p>
+                  <p className="notif_sbjct"> {notif.notif_subject} </p>  
+                  <p className="notif_msg"> 
+                  <FontAwesomeIcon className="faNotif2" icon={faArrowRightLong} />
+                  { notif.notif_msg }</p>
+                </div>
+              ))
+            }
+          </div>
         </div>
-        <div className="box4">
+        <div className="box4"> {/*    Task To Achieve */}
           <h3
             style={{
               fontSize: "20px",
