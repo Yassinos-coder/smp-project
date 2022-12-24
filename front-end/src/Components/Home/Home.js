@@ -191,7 +191,7 @@ const Home = () => {
                 style={{
                   paddingLeft: "2%",
                   textDecoration: "underline",
-                  fontSize: "10px",
+                  fontSize: "14px",
                 }}
               >
                 Systems Status :

@@ -65,7 +65,7 @@ router.post('/Signin', async (req,res) => {
 router.post('/updateMail/:id', async(req,res) => {
     let id = req.params.id
     let newMail = req.body
-    console.log(newMail.newMail)
+    // console.log(newMail.newMail)
     let checkIfMailisCorrect = await UsersDBModel.findOne({_id: id })
     try {
         if (checkIfMailisCorrect) {
@@ -82,7 +82,7 @@ router.post('/updateMail/:id', async(req,res) => {
 router.post('/updatePassword/:id', async(req,res) => {
     let id = req.params.id
     let newPassword = req.body
-    console.log(newPassword.newPassword)
+    // console.log(newPassword.newPassword)
     let checkIfPasswordisCorrect = await UsersDBModel.findOne({_id: id })
     try {
         if (checkIfPasswordisCorrect) {
