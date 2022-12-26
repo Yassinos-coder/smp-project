@@ -13,15 +13,16 @@ import TopBar from "./TopBar";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import axios from "axios";
 
 const Home = () => {
   // below states for Alerts in materialUI
   const [LoginError, setLoginError] = useState(false);
   // other Main States
   const dispatch = useDispatch();
-  const [webStatus, setWebStatus] = useState("0");
-  const [backEnd, setbackEnd] = useState("0");
-  const [apisServer, setapisServer] = useState("0");
+  const webStatus = true;
+  const [backEnd, setbackEnd] = useState(false);
+  const [apisServer, setapisServer] = useState(false);
   const [open, setOpen] = useState(false);
   const signin_response = useSelector(
     (state) => state.newUserReducer.isloginCorrect
@@ -35,6 +36,9 @@ const Home = () => {
     if (!localStorage.role_name) {
       setOpen(true);
     }
+    axios.get('http://localhost:2003/').then((res) => {setapisServer(res.data)}).catch((err) =>{console.error(err)})
+    axios.get('http://localhost:2003/DBStatus').then((res) => {setbackEnd(res.data)}).catch((err) =>{console.error(err)})
+    console.log(apisServer, backEnd)
   },[]);
 
   const handleClose = () => {
@@ -200,7 +204,7 @@ const Home = () => {
                 -Web Server
                 <FontAwesomeIcon
                   style={
-                    webStatus === "200" ? { color: "green" } : { color: "red" }
+                    webStatus === true ? { color: "green" } : { color: "red" }
                   }
                   className="facircle"
                   icon={faCircle}
@@ -210,7 +214,7 @@ const Home = () => {
                 -BackEnd Server
                 <FontAwesomeIcon
                   style={
-                    backEnd === "200" ? { color: "green" } : { color: "red" }
+                    backEnd === true ? { color: "green" } : { color: "red" }
                   }
                   className="facircle"
                   icon={faCircle}
@@ -220,7 +224,7 @@ const Home = () => {
                 -APIs Server
                 <FontAwesomeIcon
                   style={
-                    apisServer === "200" ? { color: "green" } : { color: "red" }
+                    apisServer === true ? { color: "green" } : { color: "red" }
                   }
                   className="facircle"
                   icon={faCircle}

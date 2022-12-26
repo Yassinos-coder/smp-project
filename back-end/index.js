@@ -11,12 +11,15 @@ const NotifyerRouter = require('./APIs/NotifyerAPI')
 require('dotenv').config()
 
 const app = express()
+let db_success;
 
 app.use(express.json())
 app.use(cors())
 app.listen(process.env.BACK_END, ()=> console.info(`Server Up and running on port ${process.env.BACK_END}`))
 mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGO_URI, ()=> console.info('Database connection granted'))
+mongoose.connect(process.env.MONGO_URI, ()=> 
+    {db_success = true
+    console.info('Database connection granted')})
 app.use(UserRouter)
 app.use(BugReportingRouter)
 app.use(StudentsRouter)
@@ -26,7 +29,9 @@ app.use(TaskRouter)
 app.use(NotifyerRouter)
 
 app.get('/', (req, res) => {
-    res.send(`<h1> Get  outta here ! what you tryna do !?!?
-    <br /> Go here <a href="http://localhost:3000">Exit</a>
-    </h1>`)
+    res.send(true)
+})
+
+app.get('/DBStatus', (req, res) => {
+    res.send(db_success)
 })
