@@ -13,8 +13,9 @@ router.get('/getRoleNotif/:role', async(req, res) => {
     }
 })
 
-router.post('/sendNotiftRole', async(req, res) => {
+router.post('/sendNotifRole', async(req, res) => {
     let newNotifData = req.body
+    console.log(newNotifData)
     try {
         const newNotif = new NotifyerbyroleDBModel(newNotifData)
         newNotif.save()

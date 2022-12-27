@@ -8,6 +8,7 @@ const ClassroomsRouter = require('./APIs/ClassroomsAPI')
 const LevelRouter = require('./APIs/LevelAPI')
 const TaskRouter = require('./APIs/TasksAPI')
 const NotifyerRouter = require('./APIs/NotifyerAPI')
+const NotifyerRoleRouter = require('./APIs/NotifByRole')
 require('dotenv').config()
 
 const app = express()
@@ -27,6 +28,7 @@ app.use(ClassroomsRouter)
 app.use(LevelRouter)
 app.use(TaskRouter)
 app.use(NotifyerRouter)
+app.use(NotifyerRoleRouter)
 
 app.get('/', (req, res) => {
     res.send(true)

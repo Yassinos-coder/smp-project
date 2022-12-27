@@ -24,11 +24,10 @@ router.post('/SendNotif', async(req, res) => {
     }
 })
 
-router.post('/DeleteNotif/:username/:notifID', async (req, res) => {
+router.post('/deleteAllNotif/:username/', async (req, res) => {
     let username = req.params.username
-    let notifID = req.params.notifID
     try {
-        await NotifyerDBModel.deleteOne({_id: notifID})
+        await NotifyerDBModel.deleteMany({notif_to_user: username})
         const updatedNotif = await NotifyerDBModel.find({notif_to_user: username}) 
         res.send(updatedNotif) 
     } catch (err) {

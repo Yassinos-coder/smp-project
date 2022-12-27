@@ -15,8 +15,8 @@ export const sendNotif = createAsyncThunk('notif/sendNotif', async(newNotif) => 
 })
 
 
-export const deleteNotif = createAsyncThunk('notif/deleteNotif', async({username, notifID}) => {
-    return axios.post(`${API_URL}/GetNotify/${username}/${notifID}`)
+export const deleteAllNotif = createAsyncThunk('notif/deleteAllNotif', async({username}) => {
+    return axios.post(`${API_URL}/deleteAllNotif/${username}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
@@ -61,14 +61,14 @@ const NotificationsHandler = createSlice({
             state.AllNotif = action.payload
             state.Status = 'Rejected'
         },
-        [deleteNotif.fulfilled] : (state, action) => {
+        [deleteAllNotif.fulfilled] : (state, action) => {
             state.AllNotif = action.payload
             state.Status = 'Accepted'
         },
-        [deleteNotif.pending] : (state) => {
+        [deleteAllNotif.pending] : (state) => {
             state.Status = 'Pending'
         },
-        [deleteNotif.rejected] : (state, action) => {
+        [deleteAllNotif.rejected] : (state, action) => {
             state.AllNotif = action.payload
             state.Status = 'Rejected'
         },

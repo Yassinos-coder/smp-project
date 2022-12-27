@@ -11,7 +11,6 @@
     position: relative;
     top: 3%;
     margin: auto;
-    border: 1px black solid;
     max-width: 85%;
     height: 90vh;
     border-radius: 8px;
@@ -140,4 +139,28 @@
 
 .SendButton button:hover{
     background-color: rgb(185, 185, 56);
+}
+
+/* ****************************************************************** */
+
+.sendNotifRole {
+    position: relative;
+    background: rgb(84,84,84);
+    background: linear-gradient(0deg, rgba(84,84,84,1) 23%, rgba(210,210,210,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#545454",endColorstr="#d2d2d2",GradientType=1);
+    border-radius: 8px;
+    max-width: 47%;
+    margin: auto;
+    height: 42vh;
+    left: -24%;
+    top: -40%;
+}
+
+
+/* **************************************************************** */
+.clr-all {
+    position: absolute;
+    margin-top: -1.7%;
+    margin-left: 22%;
+    cursor: pointer;
 }

@@ -7,16 +7,23 @@ import NotifyerModel from "../../../models/NotifyerModel";
 import { useDispatch } from "react-redux";
 import { sendNotif } from "../../../redux/NotifyerReducer";
 import NotifRoleModel from "../../../models/NotifRoleModel";
+import { sendNotifByRole } from "../../../redux/NotifRoleReducer";
 const Notifiyer = () => {
   const dispatch = useDispatch();
   const [newNotifData, setNewNotif] = useState(new NotifyerModel());
   const [newNotifRole, setNewNotifRole] = useState(new NotifRoleModel())
   const username = localStorage.getItem('userName');
+  const role = localStorage.role_name
   useEffect(() => {
     setNewNotif({ ...newNotifData, notif_from_user: username });
-  },[newNotifData,username])
+    setNewNotifRole({...newNotifRole, notif_from_user: username})
+  },[])
 
 
+  const handleroleselect = (event) => {
+    let roleSelect = event.target.options[event.target.selectedIndex].value;
+    setNewNotifRole({...newNotifRole, notif_to_role: roleSelect})
+  }
   return (
     <>
       <div className="MainNotifyer">
@@ -93,24 +100,18 @@ const Notifiyer = () => {
               <div className="title-notifyer">
                 <p>
                   <FontAwesomeIcon icon={faArrowRight} className="faNotif" />
-                  Send Notifications To A Specific User :
+                  Send Notifications To A Role Group :
                 </p>
               </div>
               <div className="toUsr">
                 <label htmlFor="user-reciever">
-                  Enter the other person'S username :
+                  To whom you wish to send a message ?
                 </label>
-                <input
-                  type="text"
-                  name="user-reciever"
-                  placeholder="Ex: jhon.smp"
-                  onChange={(e) => {
-                    setNewNotif({
-                      ...newNotifData,
-                      notif_to_user: e.target.value,
-                    });
-                  }}
-                />
+                <select className="inputs-adacnt" name="roleSelec" id="roleSelec" onChange={(event) =>{handleroleselect(event)}}>
+                  <option value="Student">Students</option>
+                  <option value="Teacher">Teachers</option>
+                  <option value="Staff">Staffs</option>
+                </select>
               </div>
               <div className="message-subject">
                 <label htmlFor="msg-sbjct">
@@ -122,8 +123,8 @@ const Notifiyer = () => {
                   id="msg-sbjct"
                   placeholder="Subject of message"
                   onChange={(e) => {
-                    setNewNotif({
-                      ...newNotifData,
+                    setNewNotifRole({
+                      ...newNotifRole,
                       notif_subject: e.currentTarget.value,
                     });
                   }}
@@ -135,8 +136,8 @@ const Notifiyer = () => {
                   name="msg"
                   id="msg"
                   onChange={(e) => {
-                    setNewNotif({
-                      ...newNotifData,
+                    setNewNotifRole({
+                      ...newNotifRole,
                       notif_msg: e.currentTarget.value,
                     });
                   }}
@@ -146,8 +147,8 @@ const Notifiyer = () => {
                 <button
                   type="submit"
                   onClick={() => {
-                    console.log(newNotifData);
-                    dispatch(sendNotif(newNotifData));
+                    console.log(newNotifRole);
+                    dispatch(sendNotifByRole(newNotifRole));
                   }}
                 >
                   Send Message

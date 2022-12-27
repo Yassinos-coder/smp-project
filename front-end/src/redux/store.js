@@ -5,6 +5,7 @@ import LevelsHandlerReducer from './LevelsReducer'
 import ClassroomsHandlerReducer from './ClassroomsReducer'
 import tasksReducer from './tasksReducer'
 import NotifyerReducer from './NotifyerReducer'
+import NotifyerByRoleReducer from './NotifRoleReducer'
 
 export const Store = configureStore({
   reducer: {
@@ -14,6 +15,8 @@ export const Store = configureStore({
     ClassroomsReducer: ClassroomsHandlerReducer,
     TaskReduder: tasksReducer,
     NotifyerReducer: NotifyerReducer,
+    NotifyerByRoleReducer: NotifyerByRoleReducer,
+
 
   },
 })

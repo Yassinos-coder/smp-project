@@ -3,13 +3,14 @@ import axios from 'axios'
 const API_URL = 'http://localhost:2003'
 
 export const getAllNotifRole = createAsyncThunk('notif/getAllNotifRole', async({role})=> {
-    return axios.post(`${API_URL}/getRoleNotif/${role}`)
+    return axios.get(`${API_URL}/getRoleNotif/${role}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
 
-export const sendNotifByRole = createAsyncThunk('notif/sendNotifByRole', async({newNotif}) => {
-    return axios.post(`${API_URL}/sendNotiftRole`, newNotif)
+export const sendNotifByRole = createAsyncThunk('notif/sendNotifByRole', async(newNotifRole) => {
+    console.log(newNotifRole)
+    return axios.post(`${API_URL}/sendNotifRole`, newNotifRole)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

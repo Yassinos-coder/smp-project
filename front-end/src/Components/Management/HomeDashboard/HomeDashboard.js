@@ -7,18 +7,22 @@ import Tasks from "../TaskToAchieve/Tasks";
 import '@fortawesome/free-solid-svg-icons'
 import { faEnvelopeCircleCheck, faArrowRightLong, faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getNotify, markRead } from "../../../redux/NotifyerReducer";
+import { deleteAllNotif, getNotify, markRead } from "../../../redux/NotifyerReducer";
+import { getAllNotifRole } from "../../../redux/NotifRoleReducer";
 
 const HomeDashboard = () => {
   const dispatch = useDispatch();
   const userID = localStorage.userID;
+  const role = localStorage.role_name
   const username = localStorage.getItem('userName')
   const NotifByUsr = useSelector((state ) => state.NotifyerReducer.AllNotif)
+  const NotifToRole = useSelector((state) => state.NotifyerByRoleReducer.allNotif)
   const [faNotif, setFaNotif ] = useState(faEnvelopeCircleCheck)
 
   useEffect(() => {
     dispatch(getTasks({ userid: userID }));
     dispatch(getNotify({username: username}))
+    dispatch(getAllNotifRole({role: role}))
     NotifByUsr.map((notif) => {
       if (notif.read === false) {
         setFaNotif(faEnvelopeCircleCheck)
@@ -40,6 +44,10 @@ const HomeDashboard = () => {
         }
       }
     })
+  }
+
+  const handleClearAll = () => {
+    dispatch(deleteAllNotif({username:username}))
   }
 
   return (
@@ -142,12 +150,27 @@ const HomeDashboard = () => {
           >
             Notifications :
           </h3>
+          <div className="clr-all">
+            <p onClick={handleClearAll}>Clear All</p>
+          </div>
           <div className="display-notif">
+            {
+              NotifToRole.map((notif, index) => (
+                <div className="notif">
+                  <FontAwesomeIcon onClick={()=> {markReadHandler(notif)}} className="faNotif" icon={faNotif} />
+                  <p className="notfi_from_usr">from {notif.notif_from_user} <strong>To All {role}</strong>:</p>
+                  <p className="notif_sbjct"> {notif.notif_subject} </p>  
+                  <p className="notif_msg"> 
+                  <FontAwesomeIcon className="faNotif2" icon={faArrowRightLong} />
+                  { notif.notif_msg }</p>
+                </div>
+              ))
+            }
             {
               NotifByUsr.map((notif, index) => (
                 <div className="notif">
                   <FontAwesomeIcon onClick={()=> {markReadHandler(notif)}} className="faNotif" icon={faNotif} />
-                  <p className="notfi_from_usr"> {notif.notif_from_user} :</p>
+                  <p className="notfi_from_usr">from {notif.notif_from_user}:</p>
                   <p className="notif_sbjct"> {notif.notif_subject} </p>  
                   <p className="notif_msg"> 
                   <FontAwesomeIcon className="faNotif2" icon={faArrowRightLong} />
