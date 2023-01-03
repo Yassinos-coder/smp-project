@@ -184,22 +184,42 @@ td {
     height: 25vh;
     max-width: 1279px;
     left: 30%;
-    top: -63.7%;
+    top: -56.3%;
 }
 
-.part1 {
+.part1-data {
+    padding: 21px 17px;
+    font-size: 19px;
+}
+.hr-part1-data {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 25%;
+    border: 2px;
+    top: 49.5%;
+}
 
+.part1-data-2 {
+    position: relative;
+    left: 35%;
+    margin-top: -14.7%;
+    font-size: 19px;
+    max-width: 330px;
 }
 
 .studentData2Display {
     position: relative;
     background-color: orange;
     left: 30%;
-    top: -15%;
+    top: -7.5%;
     height: 24vh;
     max-width: 1279px;
 } 
 
-.part2 {
+.part2-data {
 
 }

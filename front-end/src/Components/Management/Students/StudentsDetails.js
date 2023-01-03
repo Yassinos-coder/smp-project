@@ -54,8 +54,20 @@ const StudentsDetails = () => {
                     <h2>Pic</h2>
                 </div>
                 <div className="studentData1Display">
-                    <div className="part1">
-
+                    <div className="part1-data">
+                        <p>Full Name: {studentsDataFromCmp.firstname} {studentsDataFromCmp.lastname}</p>
+                        <p>Dob: {studentsDataFromCmp.dob}</p>
+                        <p>Email Address : {studentsDataFromCmp.email}</p>
+                        <p>Living Address: {studentsDataFromCmp.address}</p>
+                        <p>Grade / Level Code : { studentsDataFromCmp.level }</p>
+                        <hr className="hr-part1-data"/>
+                        <div className="part1-data-2">
+                            <p>Classroom Group : {studentsDataFromCmp.classroom_group} </p>
+                            <p>Father'S Name : {studentsDataFromCmp.father_name} </p>
+                            <p>Father'S CIN : {studentsDataFromCmp.father_cin} </p>
+                            <p>Mother'S Name : {studentsDataFromCmp.mother_name} </p>
+                            <p>Mother'S CIN : {studentsDataFromCmp.mother_cin} </p>
+                        </div>
                     </div>
                 </div>
                 <div className="studentData2Display">
