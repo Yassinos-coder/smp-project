@@ -68,6 +68,13 @@ const StudentsDetails = () => {
                             <p>Mother'S Name : {studentsDataFromCmp.mother_name} </p>
                             <p>Mother'S CIN : {studentsDataFromCmp.mother_cin} </p>
                         </div>
+                        <hr className="hr-part1-data-2"/>
+                        <div className="part1-data-3">
+                            <h3>Actions: </h3>
+                            <button className="detailsBtn btn-action1">Upload Student Picture</button>
+                            <button className="detailsBtn btn-action2">Change Password</button>
+                            <button className="detailsBtn btn-action3">Delete Student</button>
+                        </div>
                     </div>
                 </div>
                 <div className="studentData2Display">

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Students.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPlus, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import StudentsAccounts from "../../../models/StudentsAccounts";
@@ -23,7 +23,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import {
   AddStudent,
-  GetStudentsList,
 } from "../../../redux/StudentsAccountsReducer";
 import { Input } from "@mui/material";
 
@@ -43,10 +42,6 @@ const Students = () => {
   const AllGroups = useSelector(
     (state) => state.ClassroomsReducer.ClassroomsInfo
   );
-
-  useEffect(() => {
-    dispatch(GetStudentsList());
-  });
 
   const selectionFuncGroup = (event) => {
     let GroupChoice = event.target.options[event.target.selectedIndex].text;
@@ -382,7 +377,7 @@ const Students = () => {
           <hr className="hr-students-3" />
           <div className="AddStudent">
             <button
-              type="click"
+              type="submit"
               onClick={handleClickOpen}
               className="btn-add-student"
             >

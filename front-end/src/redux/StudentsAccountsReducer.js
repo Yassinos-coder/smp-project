@@ -23,7 +23,8 @@ const StudentsAccountsHandler = createSlice({
     },
     reducers : {},
     extraReducers: {
-        [AddStudent.fulfilled] : (state) => {
+        [AddStudent.fulfilled] : (state, action) => {
+            state.studentsData = [...state.studentsData, action.payload]
             state.Status = 'Accepted'
         },
         [AddStudent.pending] : (state) => {

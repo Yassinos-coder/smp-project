@@ -7,10 +7,9 @@ router.post('/AddStudent', async(req,res) => {
     let student = req.body
     try {
         const newStudent = new StudentsAccountsDBModel(student)
-        res.send(res.status(200))
-        newStudent.save(() => {
-            console.log('Student Inserted')
-        })
+        let updatedStudentList = await newStudent.save()
+        res.send(updatedStudentList)
+        console.log('Student Inserted !')
     } catch (err) {
         console.error(err)
     }

@@ -179,7 +179,7 @@ td {
 }
 
 .studentData1Display {
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.438);
     position: relative;
     height: 25vh;
     max-width: 1279px;
@@ -209,6 +209,44 @@ td {
     margin-top: -14.7%;
     font-size: 19px;
     max-width: 330px;
+}
+
+.hr-part1-data-2 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 55%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part1-data-3 {
+    position: relative;
+    left: 65%;
+    max-width: 444px;
+    margin-top: -15%;
+}
+
+.part1-data-3 h3 {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.detailsBtn {
+    display: block;
+    padding: 5px 50px;
+    margin-top: 2%;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.detailsBtn:hover {
+    background-color: green;
 }
 
 .studentData2Display {
