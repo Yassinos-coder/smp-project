@@ -19,22 +19,22 @@ const StudentsAccountsHandler = createSlice({
     initialState : {
         studentsData: [],
         Status:'',
-        Error:','
+        Error:''
     },
     reducers : {},
     extraReducers: {
-        [AddStudent.fulfilled] : (state, action) => {
-            state.studentsData = action.payload
+        [AddStudent.fulfilled] : (state) => {
             state.Status = 'Accepted'
         },
-        [AddStudent.pending] : (state, action) => {
+        [AddStudent.pending] : (state) => {
             state.Status = 'Pending'
         },
-        [AddStudent.rejected] : (state, action) => {
+        [AddStudent.rejected] : (state) => {
             state.Error = 'Rejected'
         },
         [GetStudentsList.fulfilled] : (state, action) => {
             state.studentsData = action.payload
+            console.log(state.studentsData)
             state.Status = 'Accepted'
         },
         [GetStudentsList.pending] : (state) => {

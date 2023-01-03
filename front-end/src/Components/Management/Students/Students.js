@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Students.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +22,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import {
-  AddStudent,
+  AddStudent, GetStudentsList,
 } from "../../../redux/StudentsAccountsReducer";
 import { Input } from "@mui/material";
 
@@ -35,15 +35,14 @@ const Students = () => {
   const [newStudent, setNewStudent] = useState(new StudentsAccounts());
   const [CheckboxState, setCheckboxState] = useState(faSquare);
   const [open, setOpen] = useState(false);
-  const studentsList = useSelector(
-    (state) => state.StudentsAccountsHandler.studentsData
-  );
+  const studentsList = useSelector((state) => state.StudentsAccountsHandler.studentsData);
   const allLevels = useSelector((state) => state.LevelsReducer.LevelInfo);
-  const AllGroups = useSelector(
-    (state) => state.ClassroomsReducer.ClassroomsInfo
-  );
+  const AllGroups = useSelector((state) => state.ClassroomsReducer.ClassroomsInfo);
 
   const student_id = studentsList._id;
+  useEffect(()=>{
+    dispatch(GetStudentsList())
+  })
 
 
   const selectionFuncGroup = (event) => {

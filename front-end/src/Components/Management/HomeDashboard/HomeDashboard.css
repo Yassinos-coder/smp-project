@@ -69,6 +69,8 @@
     max-width: 80%;
     height: 27vh;
     border-radius: 8px;
+    max-height: 257px;
+    overflow-y: auto;
 }
 
 .notif {

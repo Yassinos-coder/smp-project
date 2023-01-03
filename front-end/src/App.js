@@ -32,7 +32,7 @@ function App() {
     dispatch(GetAllLevels());
     dispatch(GetClassroomGroups());
     dispatch(GetStudentsList());
-    if (localStorage.role_name) {
+    if (localStorage.userID) {
       dispatch(GetUserData({ id: localStorage.userID }));
     }
   },[]);

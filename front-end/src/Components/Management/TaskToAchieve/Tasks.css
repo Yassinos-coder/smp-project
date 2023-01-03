@@ -1,4 +1,6 @@
 .tasktodo {
+    max-height: 275px;
+    overflow-y: auto;
 }
 
 .header {

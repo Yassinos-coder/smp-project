@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MyAccount.css";
-import profilePic from "../../../assets/imgs/profile_pic.JPG";
+import profilePic from "../../../assets/imgs/profile_pic.webp";
 import { useSelector } from "react-redux";
 import "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

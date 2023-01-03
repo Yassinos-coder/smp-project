@@ -21,6 +21,12 @@ export const markReadRole = createAsyncThunk('notif/markReadByRole', async({noti
     .catch((err) => {console.error(err)})
 })
 
+export const deleteAllRoleNotif = createAsyncThunk('notif/deleteAllRoleNotif', async({role}) => {
+    return axios.post(`${API_URL}/deleteAllRoleNotif/${role}`)
+    .then((res) => {return res.data})
+    .catch((err) => {console.error(err)})
+})
+
 const NotifByRole = createSlice({
     name:'NotifByRoleHandler', 
     initialState: {
@@ -60,6 +66,17 @@ const NotifByRole = createSlice({
             state.Status = 'Pending'
         },
         [markReadRole.rejected]: (state, action) =>{
+            state.allNotif= action.payload
+            state.Status = 'Rejected'
+        },
+        [deleteAllRoleNotif.fulfilled]: (state, action) =>{
+            state.allNotif= action.payload
+            state.Status = 'Accepted'
+        },
+        [deleteAllRoleNotif.pending]: (state, action) =>{
+            state.Status = 'Pending'
+        },
+        [deleteAllRoleNotif.rejected]: (state, action) =>{
             state.allNotif= action.payload
             state.Status = 'Rejected'
         },

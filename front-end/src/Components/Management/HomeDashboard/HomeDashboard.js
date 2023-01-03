@@ -8,7 +8,7 @@ import '@fortawesome/free-solid-svg-icons'
 import { faEnvelopeCircleCheck, faArrowRightLong, faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { deleteAllNotif, getNotify, markRead } from "../../../redux/NotifyerReducer";
-import { getAllNotifRole } from "../../../redux/NotifRoleReducer";
+import { deleteAllRoleNotif, getAllNotifRole } from "../../../redux/NotifRoleReducer";
 
 const HomeDashboard = () => {
   const dispatch = useDispatch();
@@ -48,6 +48,7 @@ const HomeDashboard = () => {
 
   const handleClearAll = () => {
     dispatch(deleteAllNotif({username:username}))
+    dispatch(deleteAllRoleNotif({role:role}))
   }
 
   return (

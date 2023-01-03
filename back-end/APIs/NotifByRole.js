@@ -52,5 +52,17 @@ router.post('/markReadByRole/:role/:notifid', async(req, res) => {
 })
 
 
+router.post('/deleteAllRoleNotif/:role', async (req, res) => {
+    let role = req.params.role
+    try {
+        await NotifyerbyroleDBModel.deleteMany({notif_to_role: role})
+        const updatedNotif = await NotifyerDBModel.find({notif_to_role: role}) 
+        res.send(updatedNotif) 
+    } catch (err) {
+        console.error('Error Regarding deleteNotif()', err)
+    }
+})
+
+
 
 module.exports = router
