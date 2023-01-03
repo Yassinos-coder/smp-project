@@ -154,3 +154,52 @@ td {
     margin-left: -5%;
     margin-right: 3%;
 }
+
+
+
+/* ************************************************************* */
+/* Student Details */
+
+.MainBody-Dialog {
+    background-color: white;
+    border: 1px solid black;
+    max-width: 1875px;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 89vh;
+    overflow-y: auto;
+}
+
+.StudentPic {
+    background-color: red;
+    max-width: 500px;
+    height: 50vh;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.studentData1Display {
+    background-color: yellow;
+    position: relative;
+    height: 25vh;
+    max-width: 1279px;
+    left: 30%;
+    top: -63.7%;
+}
+
+.part1 {
+
+}
+
+.studentData2Display {
+    position: relative;
+    background-color: orange;
+    left: 30%;
+    top: -15%;
+    height: 24vh;
+    max-width: 1279px;
+} 
+
+.part2 {
+
+}

@@ -5,7 +5,7 @@ import { faUserPlus, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import StudentsAccounts from "../../../models/StudentsAccounts";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 
 // Below Imports For Add Student Magical Canvas
@@ -22,7 +22,8 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import {
-  AddStudent, GetStudentsList,
+  AddStudent,
+  GetStudentsList,
 } from "../../../redux/StudentsAccountsReducer";
 import { Input } from "@mui/material";
 
@@ -35,15 +36,17 @@ const Students = () => {
   const [newStudent, setNewStudent] = useState(new StudentsAccounts());
   const [CheckboxState, setCheckboxState] = useState(faSquare);
   const [open, setOpen] = useState(false);
-  const studentsList = useSelector((state) => state.StudentsAccountsHandler.studentsData);
+  const studentsList = useSelector(
+    (state) => state.StudentsAccountsHandler.studentsData
+  );
   const allLevels = useSelector((state) => state.LevelsReducer.LevelInfo);
-  const AllGroups = useSelector((state) => state.ClassroomsReducer.ClassroomsInfo);
+  const AllGroups = useSelector(
+    (state) => state.ClassroomsReducer.ClassroomsInfo
+  );
 
-  const student_id = studentsList._id;
-  useEffect(()=>{
-    dispatch(GetStudentsList())
-  })
-
+  useEffect(() => {
+    dispatch(GetStudentsList());
+  });
 
   const selectionFuncGroup = (event) => {
     let GroupChoice = event.target.options[event.target.selectedIndex].text;
@@ -55,8 +58,6 @@ const Students = () => {
     setNewStudent({ ...newStudent, level: LevelChoice });
   };
 
-
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -64,6 +65,8 @@ const Students = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+
   return (
     <>
       <Dialog
@@ -120,7 +123,7 @@ const Students = () => {
                   setNewStudent({
                     ...newStudent,
                     firstname: e.currentTarget.value,
-                  })
+                  });
                 }}
               />
             </ListItemText>
@@ -134,7 +137,7 @@ const Students = () => {
                   setNewStudent({
                     ...newStudent,
                     lastname: e.currentTarget.value,
-                  })
+                  });
                 }}
               />
             </ListItemText>
@@ -149,7 +152,6 @@ const Students = () => {
                 name="dob"
                 onChange={(e) => {
                   setNewStudent({ ...newStudent, dob: e.currentTarget.value });
-
                 }}
               />
             </ListItemText>
@@ -163,8 +165,7 @@ const Students = () => {
                   setNewStudent({
                     ...newStudent,
                     address: e.currentTarget.value,
-                  })
-
+                  });
                 }}
               />
             </ListItemText>
@@ -181,7 +182,7 @@ const Students = () => {
                   setNewStudent({
                     ...newStudent,
                     phonenumber: e.currentTarget.value,
-                  })
+                  });
                 }}
               />
             </ListItemText>
@@ -234,7 +235,9 @@ const Students = () => {
                 className="inputs-adacnt"
                 name="LevelAdd"
                 id="LevelADD"
-                onChange={(event) => {selectionFuncLevel(event)}}
+                onChange={(event) => {
+                  selectionFuncLevel(event);
+                }}
               >
                 <option>Choose a level</option>
                 {allLevels.map((level, index) => (
@@ -254,8 +257,9 @@ const Students = () => {
                 className="inputs-adacnt"
                 name="ClassroomAdd"
                 id="ClassroomAdd"
-                onChange={(event) => {selectionFuncGroup(event)}}
-
+                onChange={(event) => {
+                  selectionFuncGroup(event);
+                }}
               >
                 <option>Choose a Groupe</option>
                 {AllGroups.map((group, index) => (
@@ -350,14 +354,14 @@ const Students = () => {
             <select name="studentLevel" id="studentLevel">
               <option value="Filter By Level">Filter By Level</option>
               {allLevels.map((level, index) => (
-                  <option
-                    style={{ cursor: "pointer" }}
-                    key={index}
-                    value={level.levelcode}
-                  >
-                    {level.levelcode}
-                  </option>
-                ))}
+                <option
+                  style={{ cursor: "pointer" }}
+                  key={index}
+                  value={level.levelcode}
+                >
+                  {level.levelcode}
+                </option>
+              ))}
             </select>
           </div>
           <hr className="hr-students-2" />
@@ -365,14 +369,14 @@ const Students = () => {
             <select name="studentGroup" id="studentGroup">
               <option value="Filter By Group">Filter By Classroom Group</option>
               {AllGroups.map((group, index) => (
-                  <option
-                    style={{ cursor: "pointer" }}
-                    key={index}
-                    value={group.code}
-                  >
-                    {group.code}
-                  </option>
-                ))}
+                <option
+                  style={{ cursor: "pointer" }}
+                  key={index}
+                  value={group.code}
+                >
+                  {group.code}
+                </option>
+              ))}
             </select>
           </div>
           <hr className="hr-students-3" />
@@ -425,17 +429,20 @@ const Students = () => {
                   <td align="center"> {student.phonenumber} </td>
                   <td> {student.address} </td>
                   <td>
-                    <Link
-                      to={`StudentDetails/${student_id}`}
-                      state={student_id}
-                    >
-                      <p style={{ fontSize: "16px" }}>More Details</p>
+                    <Link to={`StudentDetails/${student._id}`} state={student}>
+                      {" "}
+                      <p
+                        style={{ fontSize: "16px" }}
+                      >
+                        More Details
+                      </p>
                     </Link>
                   </td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          <Outlet />
         </div>
       </div>
     </>

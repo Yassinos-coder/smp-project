@@ -34,7 +34,6 @@ const StudentsAccountsHandler = createSlice({
         },
         [GetStudentsList.fulfilled] : (state, action) => {
             state.studentsData = action.payload
-            console.log(state.studentsData)
             state.Status = 'Accepted'
         },
         [GetStudentsList.pending] : (state) => {
