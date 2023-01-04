@@ -2,6 +2,9 @@ const {  mongoose } = require('mongoose')
 const db = require('mongoose')
 
 const StudentsAccounts = db.Schema({ 
+    profile_pic: {
+        type: String
+    },
     firstname : {
         type : String, 
         required : true

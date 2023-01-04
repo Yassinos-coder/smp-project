@@ -1,9 +1,10 @@
 const { Router } = require('express')
 const StudentsAccountsDBModel = require('../DB/StudentsAccountsDBModel')
 const router = Router()
+const fs = require('fs')
 
 
-router.post('/AddStudent', async(req,res) => {
+router.post('/AddStudent', async(req, res) => {
     let student = req.body
     try {
         const newStudent = new StudentsAccountsDBModel(student)
@@ -15,12 +16,23 @@ router.post('/AddStudent', async(req,res) => {
     }
 })
 
-router.get('/GetStudents',async(req,res) => {
+router.get('/GetStudents',async(req, res) => {
     let students = await StudentsAccountsDBModel.find()
     if (students) {
         res.send(students)
     } else {
         console.log('No Students in DB')
+    }
+})
+
+//Still not working 
+
+router.post('/profilePictureUpload', async(req, res) => {
+    let imageProfile = req.body
+    try {
+        console.log(imageProfile)
+    } catch (err) {
+     console.error('Error regarding profilePictureUpload API', err)   
     }
 })
 
