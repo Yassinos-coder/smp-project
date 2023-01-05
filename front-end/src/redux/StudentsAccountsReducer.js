@@ -14,12 +14,12 @@ export const GetStudentsList = createAsyncThunk('students/GetStudentsList', asyn
     .catch((err) => {console.error(err)})
 })
 
-export const profilePictureUpload = createAsyncThunk('students/profilePictureUpload', async({imageProfile}) => {
-    console.log(imageProfile)
-    return axios.post(`${API_URL}/profilePictureUpload`, imageProfile)
+export const DeleteStudent = createAsyncThunk('students/DeleteStudent', async({student_id}) => {
+    return axios.post(`${API_URL}/DeleteStudent/${student_id}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })
+
 
 const StudentsAccountsHandler = createSlice({
     name : 'studentsAccount',
@@ -48,6 +48,17 @@ const StudentsAccountsHandler = createSlice({
             state.Status = 'Pending'
         },
         [GetStudentsList.rejected] : (state, action) => {
+            state.studentsData = action.payload
+            state.Error = 'Rejected'
+        },
+        [DeleteStudent.fulfilled] : (state, action) => {
+            state.studentsData = action.payload
+            state.Status = 'Accepted'
+        },
+        [DeleteStudent.pending] : (state) => {
+            state.Status = 'Pending'
+        },
+        [DeleteStudent.rejected] : (state, action) => {
             state.studentsData = action.payload
             state.Error = 'Rejected'
         },

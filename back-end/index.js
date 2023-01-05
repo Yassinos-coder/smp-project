@@ -14,6 +14,7 @@ require('dotenv').config()
 const app = express()
 let db_success;
 
+
 app.use(express.json())
 app.use(cors())
 app.listen(process.env.BACK_END, ()=> console.info(`Server Up and running on port ${process.env.BACK_END}`))

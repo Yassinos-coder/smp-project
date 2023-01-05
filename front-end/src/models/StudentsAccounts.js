@@ -1,5 +1,6 @@
 class StudentsAccounts {
     constructor (
+        profile_pic= 'default_pp.webp',
         firstname = '',
         lastname = '',
         dob = '',
@@ -15,6 +16,7 @@ class StudentsAccounts {
         mother_cin = '',
     )
     {
+        this.profile_pic = profile_pic
         this.firstname = firstname
         this.lastname = lastname
         this.dob = dob
