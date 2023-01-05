@@ -30,7 +30,7 @@ const HomeDashboard = () => {
         setFaNotif(faEnvelopeOpen)
       }
     })
-  },[NotifByUsr]);
+  },[]);
 
   const markReadHandler = (i) => {
     NotifByUsr.map((notif) => {

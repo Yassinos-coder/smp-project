@@ -39,7 +39,7 @@ const Classrooms = () => {
   const AllLevels = useSelector((state) => state.LevelsReducer.LevelInfo);
   useEffect(() => {
     dispatch(GetClassroomGroups());
-  });
+  },[]);
   const AllGroups = useSelector(
     (state) => state.ClassroomsReducer.ClassroomsInfo
   );
