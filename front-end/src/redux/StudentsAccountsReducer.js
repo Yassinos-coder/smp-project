@@ -20,6 +20,11 @@ export const DeleteStudent = createAsyncThunk('students/DeleteStudent', async({s
     .catch((err) => {console.error(err)})
 })
 
+export const uploadStudentImage = createAsyncThunk('students/uploadStudentImage', async({studentid,image})=> {
+    return axios.post(`${API_URL}/profilePictureUpload/${studentid}`, image)
+    .then((res) => {return res.data})
+    .catch((err) => {console.error(err)})
+})
 
 const StudentsAccountsHandler = createSlice({
     name : 'studentsAccount',

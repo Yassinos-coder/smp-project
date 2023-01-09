@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
-  DeleteStudent
+  DeleteStudent, uploadStudentImage
 } from "../../../redux/StudentsAccountsReducer";
 
 // Below Imports For Add Student Magical Canvas
@@ -33,6 +33,15 @@ const StudentsDetails = () => {
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
+  let imageUpload;
+
+  const fileUpload = () => {
+    const file = new FormData()
+    file.append("image", imageUpload)
+    dispatch(uploadStudentImage({studentid: studentsDataFromCmp._id, image:file}))
+  }
+
+
   return (
     <div>
       <Dialog
@@ -62,7 +71,7 @@ const StudentsDetails = () => {
         </AppBar>
         <div className="MainBody-Dialog">
           <div className="StudentPic">
-            <h2>Pic</h2>
+            <img src={'http://localhost:2003/Students/'+studentsDataFromCmp._id} alt="Profile Avatar" />
           </div>
           <div className="studentData1Display">
             <div className="part1-data">
@@ -86,8 +95,8 @@ const StudentsDetails = () => {
               <div className="part1-data-3">
                 <h3>Actions: </h3>
                 <div className="div-upload">
-                  <input type="file" name="profile-pic-upload" />
-                  <button type="submit">Upload</button>
+                  <input type="file" name="profile-pic-upload" onChange={(e) =>{ imageUpload = e.target.files[0]}}/>
+                  <button type="submit" onClick={fileUpload} >Upload</button>
                 </div>
                 <button className="detailsBtn btn-action2">
                   Change Password

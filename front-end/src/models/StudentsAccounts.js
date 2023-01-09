@@ -1,6 +1,6 @@
 class StudentsAccounts {
     constructor (
-        profile_pic= 'default_pp.webp',
+        profile_pic= 'default_pp',
         firstname = '',
         lastname = '',
         dob = '',

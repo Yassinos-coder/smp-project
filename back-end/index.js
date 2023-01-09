@@ -9,14 +9,16 @@ const LevelRouter = require('./APIs/LevelAPI')
 const TaskRouter = require('./APIs/TasksAPI')
 const NotifyerRouter = require('./APIs/NotifyerAPI')
 const NotifyerRoleRouter = require('./APIs/NotifByRole')
+const fileupload = require("express-fileupload")
 require('dotenv').config()
 
 const app = express()
 let db_success;
 
-
+app.use(express.static('uploads'))
 app.use(express.json())
 app.use(cors())
+app.use(fileupload())
 app.listen(process.env.BACK_END, ()=> console.info(`Server Up and running on port ${process.env.BACK_END}`))
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URI, ()=> 
