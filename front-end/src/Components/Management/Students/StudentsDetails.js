@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const StudentsDetails = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,11 @@ const StudentsDetails = () => {
     const file = new FormData()
     file.append("image", imageUpload)
     dispatch(uploadStudentImage({studentid: studentsDataFromCmp._id, image:file}))
+  }
+
+  const handlePasswordChange = () => {
+    axios.post(`http://localhost:2003/genNewPass/${studentsDataFromCmp._id}/${studentsDataFromCmp.email}`).then((res)=> {return res.data})
+    .catch((err) =>{console.error(err)})
   }
 
 
@@ -98,7 +104,9 @@ const StudentsDetails = () => {
                   <input type="file" name="profile-pic-upload" onChange={(e) =>{ imageUpload = e.target.files[0]}}/>
                   <button type="submit" onClick={fileUpload} >Upload</button>
                 </div>
-                <button className="detailsBtn btn-action2">
+                <button className="detailsBtn btn-action2"
+                  onClick={handlePasswordChange}
+                >
                   Change Password
                 </button>
                 <button
