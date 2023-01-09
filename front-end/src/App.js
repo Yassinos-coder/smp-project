@@ -28,12 +28,13 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(GetAllLevels());
-    dispatch(GetClassroomGroups());
-    dispatch(GetStudentsList());
     if (localStorage.userID) {
       dispatch(GetUserData({ id: localStorage.userID }));
     }
+    dispatch(GetAllLevels());
+    dispatch(GetClassroomGroups());
+    dispatch(GetStudentsList());
+
   },[]);
 
   return (
