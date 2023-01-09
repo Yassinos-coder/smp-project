@@ -14,7 +14,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import profileLogo from '../../../assets/imgs/default_pp.webp'
 
 const StudentsDetails = () => {
   const dispatch = useDispatch();
@@ -24,15 +23,6 @@ const StudentsDetails = () => {
   const studentsDataFromCmp = location.state;
 
   const [openDetails, setOpenDetails] = useState(true);
-  const [profilePic, setProfilePic] = useState(null)
-
-  useEffect(() => {
-    if (profilePic === null) {
-      setProfilePic(profileLogo)
-    } else {
-      setProfilePic('http://localhost:2003/Students/'+ studentsDataFromCmp._id)
-    }
-  })
 
   const handleCloseDetails = () => {
     setOpenDetails(false);
@@ -85,7 +75,7 @@ const StudentsDetails = () => {
         </AppBar>
         <div className="MainBody-Dialog">
           <div className="StudentPic">
-            <img src={profilePic} alt="Profile Avatar" />
+            <img src={'http://localhost:2003/Students/'+ studentsDataFromCmp._id} alt="Profile Avatar" />
           </div>
           <div className="studentData1Display">
             <div className="part1-data">
