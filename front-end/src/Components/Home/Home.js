@@ -177,7 +177,6 @@ const Home = () => {
               type="password"
               name="login-password"
               placeholder="Enter your password"
-              onChange={send_inputs}
             />
             <a
               target="__blank"
@@ -187,7 +186,8 @@ const Home = () => {
             >
               <p>Forgot Password ?</p>
             </a>
-            <button className="btn-signin" onClick={Login} type="submit">
+            <button className="btn-signin" onClick={()=>{send_inputs()
+               Login()}} type="submit">
               Sign In
             </button>
             <div className="system-status">

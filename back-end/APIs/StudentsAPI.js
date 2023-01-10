@@ -4,15 +4,9 @@ const router = Router();
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const passGen = require("generate-password");
+const {mailTransporter} = require('../helpers/smtp_config')
 let SaltRounds = 10;
 
-let mailTransporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "castroyassine0@gmail.com",
-    pass: 'qrgjfuadljwwrjpo',
-  },
-});
 
 router.post("/AddStudent", async (req, res) => {
   let student = req.body;
