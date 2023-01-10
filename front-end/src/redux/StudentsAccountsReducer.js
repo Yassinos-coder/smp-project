@@ -30,13 +30,50 @@ const StudentsAccountsHandler = createSlice({
     name : 'studentsAccount',
     initialState : {
         studentsData: [],
+        unfilteredList:[],
         Status:'',
         Error:''
     },
-    reducers : {},
+    reducers : {
+        filterBylevel : (state, action) => {
+            if (action.payload === 'Filter By Level') {
+                state.studentsData = state.unfilteredList 
+            } else {
+                let filteredList = [...state.studentsData.filter((student) => 
+                    student.level === action.payload
+                )] 
+                state.studentsData = filteredList
+            }
+        },
+        filterBygroup : (state, action) => {
+            if (action.payload ==='Filter By Classroom Group') {
+                state.studentsData = state.unfilteredList 
+            } else {
+                let filteredList = [...state.studentsData.filter((student) => 
+                    student.classroom_group === action.payload
+                )] 
+    
+                state.studentsData = filteredList
+            }
+        },
+        filterByname : (state, action) => {
+            if (action.payload ==='') {
+                state.studentsData = state.unfilteredList 
+            } else {
+                let filteredList = [...state.studentsData.filter((student) => 
+                    student.firstname.includes(action.payload) ||
+                    student.lastname.includes(action.payload)
+
+                )]     
+                state.studentsData = filteredList    
+            } 
+        },
+
+    },
     extraReducers: {
         [AddStudent.fulfilled] : (state, action) => {
             state.studentsData = [...state.studentsData, action.payload]
+            state.unfilteredList = [...state.unfilteredList, action.payload]
             state.Status = 'Accepted'
         },
         [AddStudent.pending] : (state) => {
@@ -47,6 +84,7 @@ const StudentsAccountsHandler = createSlice({
         },
         [GetStudentsList.fulfilled] : (state, action) => {
             state.studentsData = action.payload
+            state.unfilteredList = action.payload
             state.Status = 'Accepted'
         },
         [GetStudentsList.pending] : (state) => {
@@ -57,6 +95,7 @@ const StudentsAccountsHandler = createSlice({
             state.Error = 'Rejected'
         },
         [DeleteStudent.fulfilled] : (state, action) => {
+            state.unfilteredList = action.payload
             state.studentsData = action.payload
             state.Status = 'Accepted'
         },
@@ -72,3 +111,4 @@ const StudentsAccountsHandler = createSlice({
 
 
 export default StudentsAccountsHandler.reducer
+export const {filterBylevel, filterBygroup, filterByname} = StudentsAccountsHandler.actions

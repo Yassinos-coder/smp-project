@@ -22,7 +22,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import {
-  AddStudent,
+  AddStudent, filterBygroup, filterBylevel, filterByname,
 } from "../../../redux/StudentsAccountsReducer";
 import { Input } from "@mui/material";
 
@@ -60,6 +60,17 @@ const Students = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const selecLevelFilter = (event) =>{
+    let levelFilter = event.target.options[event.target.selectedIndex].text
+    dispatch(filterBylevel(levelFilter))
+
+  }
+
+  const selecGroupFilter = (event) => {
+    let groupFilter = event.target.options[event.target.selectedIndex].text
+    dispatch(filterBygroup(groupFilter))
+  }
 
 
   return (
@@ -341,13 +352,13 @@ const Students = () => {
             <input
               className="srch-input"
               type="text"
-              placeholder="Filter By Name"
-            />
+              placeholder="Filter By Firstname"
+            onChange={(e) =>{dispatch(filterByname(e.currentTarget.value))}}/>
           </div>
           <hr className="hr-students" />
           <div className="filter-by-level">
-            <select name="studentLevel" id="studentLevel">
-              <option value="Filter By Level">Filter By Level</option>
+            <select name="studentLevel" id="studentLevel" onChange={(e) =>selecLevelFilter(e)}>
+              <option value="Filter By Level" >Filter By Level</option>
               {allLevels.map((level, index) => (
                 <option
                   style={{ cursor: "pointer" }}
@@ -361,7 +372,7 @@ const Students = () => {
           </div>
           <hr className="hr-students-2" />
           <div className="filter-by-group">
-            <select name="studentGroup" id="studentGroup">
+            <select name="studentGroup" id="studentGroup" onChange={(e) =>selecGroupFilter(e)}>
               <option value="Filter By Group">Filter By Classroom Group</option>
               {AllGroups.map((group, index) => (
                 <option
