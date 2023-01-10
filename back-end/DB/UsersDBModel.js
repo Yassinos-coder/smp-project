@@ -6,6 +6,10 @@ const Users = db.Schema({
         type: String,
         required : false
     },
+    avatar: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required : true

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Students.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import StudentsAccounts from "../../../models/StudentsAccounts";
 import { Link, Outlet } from "react-router-dom";

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
-import profileLogo from "../../assets/imgs/profile_pic.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core";
@@ -24,6 +23,7 @@ const SideBar = () => {
   const [visibilityforOwner, setvisibilityforOwner ] = useState('none')
   const role = useSelector((state) => state.newUserReducer.userInfo.role)
   const firstname = useSelector((state) => state.newUserReducer.userInfo.firstname)
+  const userData_from_redux = useSelector((state) => state.newUserReducer.userInfo)
 
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const SideBar = () => {
       {/* Left Vertical Menu */}
       <div className="hr-menu">
         <div className="top-hr-menu">
-          <img src={profileLogo} alt="Profile Logo" />
+          <img src={'http://localhost:2003/avatars/'+ userData_from_redux._id} alt="Profile Logo" />
           <p className="p-1st-line">
             Welcome {firstname} !
             <br />

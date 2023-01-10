@@ -41,7 +41,7 @@ router.post('/markRead/:username/:notifid', async(req, res) => {
     let readUpdate = req.body
     console.log(readUpdate)
     try {
-        await NotifyerDBModel.updateOne({_id: notifid, read:readUpdate.readUpdate})
+        await NotifyerDBModel.updateOne({_id: notifid}, {read:readUpdate.readUpdate})
         const newNotifList = await NotifyerDBModel.find({notif_to_user: username})
         console.log(newNotifList)
         res.send(newNotifList)

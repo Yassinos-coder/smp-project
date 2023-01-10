@@ -69,7 +69,7 @@ router.post('/updateMail/:id', async(req,res) => {
     let checkIfMailisCorrect = await UsersDBModel.findOne({_id: id })
     try {
         if (checkIfMailisCorrect) {
-            await UsersDBModel.updateOne({_id:id,email: newMail.newMail})
+            await UsersDBModel.updateOne({_id:id} ,{email: newMail.newMail})
             res.send(true)
         } else {
             
@@ -86,13 +86,36 @@ router.post('/updatePassword/:id', async(req,res) => {
     let checkIfPasswordisCorrect = await UsersDBModel.findOne({_id: id })
     try {
         if (checkIfPasswordisCorrect) {
-            await UsersDBModel.updateOne({_id:id, password: newPassword.newPassword})
+            await UsersDBModel.updateOne({_id:id}, {password: newPassword.newPassword})
             res.send(true)
         } else {
             
         }
     } catch (err) {
         console.error(err)
+    }
+})
+
+router.post('/avatarUploader/:userID', async(req, res) => {
+    const file = req.files.image
+    let userID = req.params.userID
+    let path  = `uploads/Staffs/${userID}`
+    try {
+        file.mv(path, async (err) => {
+            if (err) {
+              console.log(err);
+            } else {
+              await UsersDBModel.updateOne(
+                {_id: userID},
+                {avatar: userID},
+              );
+              console.log(
+                `User with ID: ${userID} uploaded a file: ${file.name}`
+              );
+            }
+          });
+    } catch (err) {
+        console.error('Error in avatarUploader', err)
     }
 })
 

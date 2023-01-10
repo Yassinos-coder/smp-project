@@ -1,6 +1,7 @@
 class SignupsModel {
   constructor(
     schoolid = "",
+    avatar="default_pp",
     username = "",
     firstname ='',
     lastname ='',
@@ -13,6 +14,7 @@ class SignupsModel {
   ) 
   {
     this.schoolid = schoolid;
+    this.avatar = avatar
     this.username = username;
     this.firstname = firstname;
     this.lastname = lastname;

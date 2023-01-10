@@ -198,3 +198,18 @@
     z-index: 1;
     width: 20%;
 }
+
+.hr-update-info-section2 {
+    margin: auto;
+    color: black;
+    background-color: black;
+    width: 85%;
+    height: 2px;
+    outline: none;
+    border: none;
+    margin-top: 9%;
+}
+
+.upload-pic-changer {
+
+}

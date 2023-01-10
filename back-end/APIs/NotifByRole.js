@@ -42,7 +42,7 @@ router.post('/markReadByRole/:role/:notifid', async(req, res) => {
     let readUpdate = req.body
     console.log(readUpdate)
     try {
-        await NotifyerDBModel.updateOne({_id: notifid, read:readUpdate.readUpdate})
+        await NotifyerDBModel.updateOne({_id: notifid}, {read:readUpdate.readUpdate})
         const newNotifList = await NotifyerbyroleDBModel.find({notif_to_role: role})
         console.log(newNotifList)
         res.send(newNotifList)

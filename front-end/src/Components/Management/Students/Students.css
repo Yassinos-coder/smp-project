@@ -183,7 +183,7 @@ td {
 }
 
 .studentData1Display {
-    background-color: rgba(255, 255, 0, 0.438);
+    background-color: rgba(128, 128, 128, 0.418);
     position: relative;
     height: 25vh;
     max-width: 1279px;
@@ -255,7 +255,7 @@ td {
 
 .studentData2Display {
     position: relative;
-    background-color: orange;
+    background-color: rgba(128, 128, 128, 0.418);
     left: 30%;
     top: -7.5%;
     height: 24vh;
@@ -263,7 +263,10 @@ td {
 } 
 
 .part2-data {
-
+    max-width: 32%;
+    margin-top: -31.4%;
+    width: 427px;
+    height: 24.0vh;
 }
 
 
@@ -281,4 +284,58 @@ td {
 .div-upload > input {
     max-width: 180px;
     width: 41%;
+}
+
+.absence {
+
+}
+
+.absense-table {
+    width: 100%;
+}
+
+.tbody-absense {
+    overflow-y: scroll;
+}
+
+.hr-part2-data-1 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 25%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part2-data-2 {
+    position: relative;
+    top: -100%;
+    left: 33.4%;
+    width: 30%;
+    max-width: 386px;
+    height: 24vh;
+}
+
+.hr-part2-data-2 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 55%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part2-data-3 {
+    position: relative;
+    top: -200%;
+    left: 66.4%;
+    width: 30%;
+    max-width: 386px;
+    height: 24vh;
 }

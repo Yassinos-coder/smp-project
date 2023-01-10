@@ -44,6 +44,12 @@ export const UpdatePassword = createAsyncThunk('accounts/UpdatePassword', async(
     .catch((err) => {console.error(err)})
 })
 
+export const profileAvatarUploader = createAsyncThunk('accounts/profileAvatarUploader', async({userID,image}) =>{
+    return axios.post(`${API_URL}/avatarUploader/${userID}`, image)
+    .then((res) => {return res.data})
+    .catch((err) => {console.error(err)})
+})
+
 const newUserHandler = createSlice({
     name: 'userDataHandler',
     initialState : {

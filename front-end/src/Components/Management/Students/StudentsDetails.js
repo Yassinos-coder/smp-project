@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
-  DeleteStudent, uploadStudentImage
+  DeleteStudent,
+  uploadStudentImage,
 } from "../../../redux/StudentsAccountsReducer";
 
 // Below Imports For Add Student Magical Canvas
@@ -36,15 +37,25 @@ const StudentsDetails = () => {
   let imageUpload;
 
   const fileUpload = () => {
-    const file = new FormData()
-    file.append("image", imageUpload)
-    dispatch(uploadStudentImage({studentid: studentsDataFromCmp._id, image:file}))
-  }
+    const file = new FormData();
+    file.append("image", imageUpload);
+    dispatch(
+      uploadStudentImage({ studentid: studentsDataFromCmp._id, image: file })
+    );
+  };
 
   const handlePasswordChange = () => {
-    axios.post(`http://localhost:2003/genNewPass/${studentsDataFromCmp._id}/${studentsDataFromCmp.email}`).then((res)=> {return res.data})
-    .catch((err) =>{console.error(err)})
-  }
+    axios
+      .post(
+        `http://localhost:2003/genNewPass/${studentsDataFromCmp._id}/${studentsDataFromCmp.email}`
+      )
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <div>
@@ -75,7 +86,10 @@ const StudentsDetails = () => {
         </AppBar>
         <div className="MainBody-Dialog">
           <div className="StudentPic">
-            <img src={'http://localhost:2003/Students/'+ studentsDataFromCmp._id} alt="Profile Avatar Unavailable" />
+            <img
+              src={"http://localhost:2003/avatars/" + studentsDataFromCmp._id}
+              alt="Profile Avatar Unavailable"
+            />
           </div>
           <div className="studentData1Display">
             <div className="part1-data">
@@ -99,10 +113,19 @@ const StudentsDetails = () => {
               <div className="part1-data-3">
                 <h3>Actions: </h3>
                 <div className="div-upload">
-                  <input type="file" name="profile-pic-upload" onChange={(e) =>{ imageUpload = e.target.files[0]}}/>
-                  <button type="submit" onClick={fileUpload} >Upload</button>
+                  <input
+                    type="file"
+                    name="profile-pic-upload"
+                    onChange={(e) => {
+                      imageUpload = e.target.files[0];
+                    }}
+                  />
+                  <button type="submit" onClick={fileUpload}>
+                    Upload
+                  </button>
                 </div>
-                <button className="detailsBtn btn-action2"
+                <button
+                  className="detailsBtn btn-action2"
                   onClick={handlePasswordChange}
                 >
                   Change Password
@@ -122,8 +145,29 @@ const StudentsDetails = () => {
             </div>
           </div>
           <div className="studentData2Display">
-            <div className="part2">Data 2</div>
+            <div className="part2-data">
+              <div className="absence">
+                <table className="absense-table" style={{border:'1px solid black', margin:'auto 1%'}}>
+                  <thead className="tbody-absense">
+                    <tr>
+                      <td width='50%'>Day When Absent :</td>
+                      <td width='50%'>Reason :</td>
+                    </tr>
+                  </thead>
+                  <tbody className="tbody-absense"></tbody>
+                </table>
+              </div>
+            </div>
+            <hr className="hr-part2-data-1" />
+            <div className="part2-data-2">
+              <h3 style={{textAlign:'center'}}>Something Else Goes Here.</h3>
+            </div>
+            <hr className="hr-part2-data-2" />
+            <div className="part2-data-3">
+              <h3 style={{textAlign:'center'}}>Something Else Goes Here.</h3>
+            </div>
           </div>
+          <h1 style={{textAlign:'center'}}>Other Data Will Go Here Soon.</h1>
         </div>
       </Dialog>
     </div>

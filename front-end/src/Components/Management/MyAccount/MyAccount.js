@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "./MyAccount.css";
-import profilePic from "../../../assets/imgs/profile_pic.webp";
 import { useSelector } from "react-redux";
 import "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowTurnRight } from "@fortawesome/free-solid-svg-icons";
-import { UpdateMail, UpdatePassword } from "../../../redux/UserReducers";
+import { profileAvatarUploader, UpdateMail, UpdatePassword } from "../../../redux/UserReducers";
 import { useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom'
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Collapse from "@mui/material/Collapse";
@@ -23,6 +21,13 @@ const MyAccount = () => {
   let newMailAddr;
   let newPass;
   let cmPass;
+  let imageUpload;
+
+  const fileUpload = () => {
+    const file = new FormData()
+    file.append("image", imageUpload)
+    dispatch(profileAvatarUploader({userID: userData_from_redux._id, image:file}))
+  }
 
 
   return (
@@ -42,7 +47,7 @@ const MyAccount = () => {
         </div>
         <div className="UserData-Box">
           <div className="userProfilePic">
-            <img className="prf-pic-pa" src={profilePic} alt="Profile " />
+            <img className="prf-pic-pa" src={'http://localhost:2003/avatars/'+userData_from_redux._id} alt="Profile " />
           </div>
           <div className="user-data-below-pic">
             <p className="ps">
@@ -283,6 +288,13 @@ const MyAccount = () => {
                 {" "}
                 Change Password{" "}
               </button>
+            </div>
+            <hr className="hr-update-info-section2"/>
+            <div className="upload-pic-changer">
+                <div className="uploadSection">
+                  <input type="file" name="profile-pic-upload" onChange={(e) =>{ imageUpload = e.target.files[0]}}/>
+                  <button type="submit" onClick={fileUpload} >Upload</button>
+                </div>
             </div>
           </div>
         </div>

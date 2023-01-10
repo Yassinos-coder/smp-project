@@ -56,10 +56,10 @@ router.post("/profilePictureUpload/:studentid", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      await StudentsAccountsDBModel.updateOne({
-        _id: student_id,
-        profile_pic: student_id,
-      });
+      await StudentsAccountsDBModel.updateOne(
+        {_id: student_id},
+        {profile_pic: student_id}
+      );
       console.log(
         `Student with ID: ${student_id} uploaded a file: ${file.name}`
       );
@@ -75,10 +75,10 @@ router.post("/genNewPass/:studentID/:StudentEmail", async (req, res) => {
     let pass = passGen.generate();
     bcrypt.genSalt(SaltRounds, async (err, salt) => {
       bcrypt.hash(pass, salt, async (err, hash) => {
-        await StudentsAccountsDBModel.updateOne({
-          _id: studentID,
-          password: hash,
-        });
+        await StudentsAccountsDBModel.updateOne(
+          {_id: studentID},
+          {password: hash},
+        );
         let mailDetails = {
           from: "smp.newpass@gmail.com",
           to: StudentEmail,
