@@ -75,7 +75,7 @@ const StudentsDetails = () => {
         </AppBar>
         <div className="MainBody-Dialog">
           <div className="StudentPic">
-            <img src={'http://localhost:2003/Students/'+ studentsDataFromCmp._id} alt="Profile Avatar" />
+            <img src={'http://localhost:2003/Students/'+ studentsDataFromCmp._id} alt="Profile Avatar Unavailable" />
           </div>
           <div className="studentData1Display">
             <div className="part1-data">
