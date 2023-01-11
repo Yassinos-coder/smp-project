@@ -132,7 +132,7 @@ router.post("/updatePassword/:id", async (req, res) => {
 router.post("/avatarUploader/:userID", async (req, res) => {
   const file = req.files.image;
   let userID = req.params.userID;
-  let path = `uploads/Staffs/${userID}`;
+  let path = `uploads/avatars/${userID}`;
   try {
     file.mv(path, async (err) => {
       if (err) {

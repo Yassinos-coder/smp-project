@@ -44,7 +44,7 @@ router.post("/DeleteStudent/:student_id", async (req, res) => {
 router.post("/profilePictureUpload/:studentid", async (req, res) => {
   let student_id = req.params.studentid;
   const file = req.files.image;
-  const path = `uploads/Students/${student_id}`;
+  const path = `uploads/avatars/${student_id}`;
 
   file.mv(path, async (err) => {
     if (err) {

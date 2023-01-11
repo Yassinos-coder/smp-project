@@ -162,7 +162,6 @@ const AddAccount = () => {
                 <option value="Student">Student</option>
                 <option value="Teacher">Teacher</option>
                 <option value="Staff">Staff</option>
-                <option value="Owner">Owner</option>
               </select>
             </div>
             <button onClick={() =>{
