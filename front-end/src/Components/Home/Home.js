@@ -75,6 +75,9 @@ const Home = () => {
       localStorage.isStillConnected = "true";
     } else {
       setLoginError(true);
+      setInterval(() => {
+        setLoginError(false);
+      }, 2000);
     }
   };
 
@@ -88,7 +91,7 @@ const Home = () => {
           aria-describedby="alert-dialog-description"
         >
           <DialogTitle id="alert-dialog-title">
-            {"Pleace specify your role !"}
+            {"Pleace specify your role at S.M.P !"}
           </DialogTitle>
           <DialogContent>
             <div className="buttons-dialog-app">
@@ -132,9 +135,6 @@ const Home = () => {
             <Alert
               variant="filled"
               elevation={8}
-              onClose={() => {
-                setLoginError(false);
-              }}
               severity="error"
             >
               <AlertTitle>Accés Refusé.</AlertTitle>
@@ -165,6 +165,7 @@ const Home = () => {
               ref={uname_input}
               type="text"
               name="login-username"
+              autoComplete="username"
               placeholder="Enter your username"
             />
             <label className="labels signin-label" htmlFor="login-password">

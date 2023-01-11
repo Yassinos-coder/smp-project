@@ -1,12 +1,12 @@
 body {
   /*  background-image: url('../../assets/imgs/background3.jpg'); */
-    background-image: url('../../assets/imgs/pexels-andrea-piacquadio-3769120.jpg');
+    background-image: url('../../assets/imgs/some-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .homepage-header {
-    background-color: rgba(128, 128, 128, 0.445);
+    background-color: rgba(255, 68, 0, 0.5);
     position: fixed;
     margin-top: 1%;
     width: 100%;
@@ -70,8 +70,8 @@ body {
 .userBox {
     position: absolute;
     background-color: rgba(32, 32, 32, 0.541);
-    margin-left: 48%;
-    margin-top: 13%;
+    margin-left: 41%;
+    margin-top: 11%;
     height: 465px;
     width: 22%;
     border-radius: 10px;
