@@ -76,17 +76,13 @@ router.post("/Signin", async (req, res) => {
   let entred_credentials = req.body;
   try {
     let doesUserPassExist = await UsersDBModel.findOne({username: entred_credentials.uname});
-    console.log(doesUserPassExist)
-    console.log(entred_credentials)
 
     if (doesUserPassExist) {
        const resultOfPass = await bcrypt.compare(entred_credentials.passwd, doesUserPassExist.password)
         if (resultOfPass === true) {
             res.send(true)
-            console.log(resultOfPass)
         } else {
             res.send(false)
-            console.log(resultOfPass)
         }
     } else {
         res.send(false)
