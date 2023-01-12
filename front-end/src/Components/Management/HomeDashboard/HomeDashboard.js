@@ -159,7 +159,7 @@ const HomeDashboard = () => {
             <p onClick={handleClearAll}>Clear All</p>
           </div>
           <div className="display-notif">
-            <div className="empty-box" style={NotifByUsr.length===0 ? {visibility: 'visible'}:{visibility:'hidden'}}>
+            <div className="empty-box" style={NotifByUsr.length===0 && NotifToRole.length===0 ? {visibility: 'visible'}:{visibility:'hidden'}}>
               <FontAwesomeIcon className="fa-empty-box" icon={faEnvelopeOpen} />
               <p>Empty Mail Box</p>
             </div>

@@ -6,14 +6,13 @@
 .header {
     position: relative;
     margin: auto;
-    max-width: 82%;
+    max-width: 70%;
     display: flex;
     flex-wrap: nowrap;
-    background-color: gray;
 }
 
 .addtodo input{
-    background-color: gray;
+    background-color: rgba(0, 128, 0, 0.63);
     border: none;
     border-radius: 5px;
     width: 230%;
@@ -27,17 +26,17 @@
 }
 
 .addbtn {
-    margin-left: 40%;
+    margin-left: 38%;
 }
 
 .addbtn button {
-    padding: 5px 12px;
+    padding: 2px 13px;
     border: none;
     cursor: pointer;
 }
 
 .task {
-    background-color: grey;
+    background-color: rgba(0, 128, 0, 0.63);
     position: relative;
     margin: auto;
     max-width: 80%;
@@ -47,7 +46,7 @@
 
 .actions {
     position: absolute;
-    margin-top: -7%;
+    margin-top: -7.1%;    
     margin-left: 82.2%;
     width: 17.9%;
     max-width: 17.9%;

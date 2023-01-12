@@ -9,12 +9,12 @@
 }
 
 .top-box {
-    background-color: grey;
+    background-color: rgba(255, 68, 0, 0.7);
     margin: auto;
-    max-width: 94%;
-    height: 70px;
+    max-width: 96%;
+    height: 7vh;
     position: relative;
-    top: 4%;
+    top: 1%;
     border-radius: 5px;
 }
 
@@ -46,14 +46,14 @@
 .data-table {
     font-size: 17px;
     margin: auto;
-    max-width: 94%;
+    max-width: 96%;
     position: relative;
     top: 5%;
     color: black;
 }
 
-thead, tbody {
-    background-color: grey;
+.thead-students, .tbody-students {
+    background-color: rgba(0, 128, 0, 0.63);
 }
 
 td {

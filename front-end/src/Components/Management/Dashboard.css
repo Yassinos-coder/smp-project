@@ -1,9 +1,9 @@
 .MainDash {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     margin: auto;
-    margin-top: 2%;
+    margin-top: 1%;
     max-width: 99%;
-    height: 900px;
+    height: 96vh;
     border-radius: 8px;
 }
 
@@ -11,7 +11,7 @@
     position: relative;
     background-color: rgba(0, 128, 0, 0.63);
     width: 13%;
-    height: 900px;
+    height: 96vh;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
@@ -87,7 +87,7 @@
 
 .hr-footer {
     background-color: white;
-    top: 2%;
+    top: 4%;
     margin: auto;
     position: relative;
     height: 1px;

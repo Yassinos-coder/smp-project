@@ -150,7 +150,7 @@ const Classrooms = () => {
             </select>
           </DialogContent>
           <DialogActions>
-            <Button autoFocus onClick={handleClose}>
+            <Button autoFocus onClick={() => {setOpen(false)}}>
               Cancel
             </Button>
             <Button onClick={handleClose}>Add Groupe</Button>
@@ -234,17 +234,17 @@ const Classrooms = () => {
           <Table striped bordered hover width="100%">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Full Name</th>
-                <th>Code</th>
-                <th>Level</th>
-                <th>Effectifs</th>
+                <th style={{backgroundColor:'rgba(255, 68, 0)'}}>#</th>
+                <th style={{backgroundColor:'rgba(0, 128, 0, 0.63)'}}>Full Name</th>
+                <th style={{backgroundColor:'rgba(0, 128, 0, 0.63)'}}>Code</th>
+                <th style={{backgroundColor:'rgba(0, 128, 0, 0.63)'}}>Level</th>
+                <th style={{backgroundColor:'rgba(0, 128, 0, 0.63)'}}>Effectifs</th>
               </tr>
             </thead>
             <tbody>
               {AllGroups.map((group, index) => (
                 <tr>
-                  <td>{index + 1}</td>
+                  <td style={{backgroundColor:'rgba(255, 68, 0)'}}>{index + 1}</td>
                   <td>{group.name}</td>
                   <td> {group.code} </td>
                   <td> {group.level} </td>

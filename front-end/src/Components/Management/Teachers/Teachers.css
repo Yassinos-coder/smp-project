@@ -9,12 +9,12 @@
 
 .teachersHeader {
     position: relative;
-    top: 4%;
+    top: 1%;
     margin: auto;
-    background-color: grey;
-    height: 8vh;
-    width: 90%;
-    max-width: 1500px;
+    background-color: rgba(255, 68, 0, 0.7);
+    height: 7vh;
+    width: 97%;
+    max-width: 1800px;
     border-radius: 8px;
 }
 
@@ -57,9 +57,9 @@
     color: black;
     -webkit-transform: rotate(90deg);
     position: absolute;
-    width: 4%;
+    width: 3%;
     height: 2px;
-    left: 30%;
+    left: 29.5%;
     border: 2px;
     top: 49.5%;
 }
@@ -69,7 +69,7 @@
     width: 25%;
     max-width: 350px;
     left: 34%;
-    margin-top: -2.8%;
+    margin-top: -2.5%;
 }
 
 .filter_by_level select{
@@ -82,9 +82,9 @@
     color: black;
     -webkit-transform: rotate(90deg);
     position: absolute;
-    width: 4%;
+    width: 3%;
     height: 2px;
-    left: 58.4%;
+    left: 57.5%;
     border: 2px;
     top: 49.5%;
 }
@@ -93,8 +93,8 @@
     position: relative;
     width: 25%;
     max-width: 350px;
-    left: 63%;
-    margin-top: -2.6%;
+    left: 62%;
+    margin-top: -2.4%;
 }
 
 .filter_by_classroom select {

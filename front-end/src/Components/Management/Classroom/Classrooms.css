@@ -10,13 +10,13 @@
 .UpBar {
     position: relative;
     margin: auto;
-    background-color: grey;
+    background-color: rgba(255, 68, 0, 0.7);
     color: black;
-    max-width: 80%;
-    top: 6%;
+    max-width: 96%;
+    top: 1%;
     border-radius: 5px;
     border: none;
-    height: 6vh;
+    height: 7vh;
 }
 
 .addClass {
@@ -85,15 +85,12 @@
 .data-table-classroom {
     font-size: 17px;
     margin: auto;
-    max-width: 81%;
+    max-width: 96%;
     position: relative;
-    top: 10%;
+    top: 5%;
     color: black;
 }
 
-thead, tbody {
-    background-color: grey;
-}
 
 td {
     padding-left: 18px;

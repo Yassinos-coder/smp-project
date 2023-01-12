@@ -25,6 +25,10 @@
     width: 90%;
 }
 
+.box1-table thead, tbody {
+    background-color: rgba(0, 128, 0, 0.63);
+}
+
 .box2 {
     margin-top: -44%;
     border: 2px black solid;

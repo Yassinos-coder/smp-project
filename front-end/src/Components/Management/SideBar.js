@@ -123,12 +123,12 @@ const SideBar = () => {
           </div>
         </div>
         <hr className="hr-footer" />
-        <div className="nav-footer" style={{marginTop:'-50%'}}>
+        <div className="nav-footer" style={{marginTop:'-36%'}}>
           <button type="submit" onClick={Signout} className="btn-signout-dash">
             Sign Out
           </button>
           <p className="text-menu-footer-dash">
-            Castro Web Industries © 2022 All Rights Reserved.
+            Castro Web Industries © 2023 All Rights Reserved.
           </p>
         </div>
       </div>

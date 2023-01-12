@@ -65,7 +65,7 @@ const StudentsDetails = () => {
         onClose={handleCloseDetails}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: "relative", backgroundColor: "grey" }}>
+        <AppBar sx={{ position: "relative", backgroundColor: "rgba(255, 68, 0, 0.7)" }}>
           <Toolbar>
             <IconButton
               edge="start"

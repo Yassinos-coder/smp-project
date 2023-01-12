@@ -399,13 +399,13 @@ const Students = () => {
         </div>
         <div className="data-table">
           <Table striped bordered hover width="100%">
-            <thead>
+            <thead className="thead-students">
               <tr>
                 <th>
                   {" "}
                   <FontAwesomeIcon icon={CheckboxState} />
                 </th>
-                <th>#</th>
+                <th style={{backgroundColor:'rgba(255, 68, 0)'}}>#</th>
                 <th>Full Name</th>
                 <th>Classroom</th>
                 <th>Level</th>
@@ -415,7 +415,7 @@ const Students = () => {
                 <th>More Details</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="tbody-students">
               {studentsList.map((student, index) => (
                 <tr>
                   <td>
@@ -424,7 +424,7 @@ const Students = () => {
                       icon={CheckboxState}
                     />
                   </td>
-                  <td key={index}> {index + 1} </td>
+                  <td  style={{backgroundColor:'rgba(255, 68, 0)'}} key={index}> {index + 1} </td>
                   <td>
                     {" "}
                     {student.firstname} {student.lastname}{" "}
