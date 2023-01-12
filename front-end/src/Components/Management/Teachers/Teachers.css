@@ -1,0 +1,102 @@
+.TeachersMain {
+    width: 87.1%;
+    height: 900px;
+    margin-top: -47.35%;
+    margin-left: 12.95%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.teachersHeader {
+    position: relative;
+    top: 4%;
+    margin: auto;
+    background-color: grey;
+    height: 8vh;
+    width: 90%;
+    max-width: 1500px;
+    border-radius: 8px;
+}
+
+.Filters {
+}
+
+.p-filters {
+    position: absolute;
+    color: white;
+    font-size: 19px;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.Filters input, select {
+    width: 80%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 4vh;
+    font-size: 16px;
+    padding-top: 2px;
+    padding-left: 4px;
+}
+
+.search_by_name {
+    position: relative;
+    width: 25%;
+    max-width: 350px;
+    left: 6%;
+    padding-top: 1%;
+}
+
+.search_by_name input {
+    width: 100%;
+}
+
+.hr-teacher1 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 4%;
+    height: 2px;
+    left: 30%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.filter_by_level {
+    position: relative;
+    width: 25%;
+    max-width: 350px;
+    left: 34%;
+    margin-top: -2.8%;
+}
+
+.filter_by_level select{
+    width: 100%;
+
+}
+
+.hr-teacher2 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 4%;
+    height: 2px;
+    left: 58.4%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.filter_by_classroom {
+    position: relative;
+    width: 25%;
+    max-width: 350px;
+    left: 63%;
+    margin-top: -2.6%;
+}
+
+.filter_by_classroom select {
+    width: 100%;
+}
