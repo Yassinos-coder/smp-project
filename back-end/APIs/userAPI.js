@@ -115,11 +115,12 @@ router.post("/updatePassword/:id", async (req, res) => {
   let checkIfPasswordisCorrect = await UsersDBModel.findOne({ _id: id });
   try {
     if (checkIfPasswordisCorrect) {
-      await UsersDBModel.updateOne(
-        { _id: id },
-        { password: newPassword.newPassword }
-      );
-      res.send(true);
+      bcrypt.genSalt(saltRounds, async(err, salt) => {
+        bcrypt.hash(newPassword.newPassword, salt ,async (err, hash) => {
+          await UsersDBModel.updateOne({_id:id}, {password: hash})
+          res.send(true)
+        })
+      })
     } else {
     }
   } catch (err) {

@@ -17,7 +17,7 @@ const HomeDashboard = () => {
   const role = localStorage.role_name
   const username = localStorage.getItem('userName')
   const NotifByUsr = useSelector((state ) => state.NotifyerReducer.AllNotif)
-  const NotifToRole = useSelector((state) => state.NotifyerByRoleReducer.allNotif)
+  const NotifToRole = useSelector((state) => state.NotifyerByRoleReducer.allNotifRole)
   const [faNotif, setFaNotif ] = useState(faEnvelopeCircleCheck)
 
   useEffect(() => {
@@ -31,7 +31,10 @@ const HomeDashboard = () => {
         setFaNotif(faEnvelopeOpen)
       }
     })
+
   },[]);
+
+
 
   const markReadHandler = (i) => {
     NotifByUsr.map((notif) => {
@@ -156,6 +159,10 @@ const HomeDashboard = () => {
             <p onClick={handleClearAll}>Clear All</p>
           </div>
           <div className="display-notif">
+            <div className="empty-box" style={NotifByUsr.length===0 ? {visibility: 'visible'}:{visibility:'hidden'}}>
+              <FontAwesomeIcon className="fa-empty-box" icon={faEnvelopeOpen} />
+              <p>Empty Mail Box</p>
+            </div>
             {
               NotifToRole.map((notif, index) => (
                 <div className="notif">

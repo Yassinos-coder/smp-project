@@ -16,9 +16,8 @@ router.post('/SendNotif', async(req, res) => {
     let newNotif = req.body
     try {
         const Notif = new NotifyerDBModel(newNotif)
-        Notif.save()
-        const updatedNotif = await NotifyerDBModel.find({notif_to_user: newNotif.username})  
-        res.send(updatedNotif)
+        await Notif.save()
+        res.send(Notif)
     } catch (err) {
         console.error('Error Regarding SendNotif()', err)
     }
@@ -31,7 +30,7 @@ router.post('/deleteAllNotif/:username/', async (req, res) => {
         const updatedNotif = await NotifyerDBModel.find({notif_to_user: username}) 
         res.send(updatedNotif) 
     } catch (err) {
-        console.error('Error Regarding deleteNotif()', err)
+        console.error('Error Regarding deleteAllNotif()', err)
     }
 })
 

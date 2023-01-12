@@ -30,54 +30,54 @@ export const deleteAllRoleNotif = createAsyncThunk('notif/deleteAllRoleNotif', a
 const NotifByRole = createSlice({
     name:'NotifByRoleHandler', 
     initialState: {
-        allNotif: [], 
+        allNotifRole: [], 
         Status:'',
         Error:'',
     },
     reducers:{},
     extraReducers: {
         [getAllNotifRole.fulfilled]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Accepted'
         },
         [getAllNotifRole.pending]: (state, action) =>{
             state.Status = 'Pending'
         },
         [getAllNotifRole.rejected]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Rejected'
         },
         [sendNotifByRole.fulfilled]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole = [...state.allNotifRole, action.payload]
             state.Status = 'Accepted'
         },
         [sendNotifByRole.pending]: (state, action) =>{
             state.Status = 'Pending'
         },
         [sendNotifByRole.rejected]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Rejected'
         },
         [markReadRole.fulfilled]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Accepted'
         },
         [markReadRole.pending]: (state, action) =>{
             state.Status = 'Pending'
         },
         [markReadRole.rejected]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Rejected'
         },
         [deleteAllRoleNotif.fulfilled]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Accepted'
         },
         [deleteAllRoleNotif.pending]: (state, action) =>{
             state.Status = 'Pending'
         },
         [deleteAllRoleNotif.rejected]: (state, action) =>{
-            state.allNotif= action.payload
+            state.allNotifRole= action.payload
             state.Status = 'Rejected'
         },
     }
