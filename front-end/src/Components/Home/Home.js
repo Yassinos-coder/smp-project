@@ -9,13 +9,15 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Collapse from "@mui/material/Collapse";
 import TopBar from "./TopBar";
-//
+import smpLogo from '../../assets/imgs/smpLogo.png'
+//Bellow Import For Material UI + AXIOS 
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
 
 const Home = () => {
+  const [credentials_to_send, setCredentials_to_send] = useState()
   // below states for Alerts in materialUI
   const [LoginError, setLoginError] = useState(false);
   // other Main States
@@ -24,9 +26,7 @@ const Home = () => {
   const [backEnd, setbackEnd] = useState(false);
   const [apisServer, setapisServer] = useState(false);
   const [open, setOpen] = useState(false);
-  const signin_response = useSelector(
-    (state) => state.newUserReducer.isloginCorrect
-  );
+  const signin_response = useSelector((state) => state.newUserReducer.isloginCorrect);
   const uname_input = React.createRef();
   const passwd_input = React.createRef();
   const navigate = useNavigate();
@@ -38,7 +38,6 @@ const Home = () => {
     }
     axios.get('http://localhost:2003/').then((res) => {setapisServer(res.data)}).catch((err) =>{console.error(err)})
     axios.get('http://localhost:2003/DBStatus').then((res) => {setbackEnd(res.data)}).catch((err) =>{console.error(err)})
-    console.log(apisServer, backEnd)
   },[]);
 
   const handleClose = () => {
@@ -57,17 +56,18 @@ const Home = () => {
     localStorage.setItem("isStillConnected", "false");
   }
 
-  // Below send_inputs() sends login credentials to back-end onchange in password input
+  // Below send_inputs() sends login credentials to back-end onclick in login button
   const send_inputs = () => {
-    let credentials_to_send = {
-      uname: uname_input.current.value,
-      passwd: passwd_input.current.value,
-    };
+    // let credentials_to_send = {
+    //   uname: uname_input.current.value,
+    //   passwd: passwd_input.current.value,
+    // };
     dispatch(Signin({ credentials: credentials_to_send }));
     dispatch(getUserID({ username: credentials_to_send.uname }));
+    return true
   };
   // below we check on response from back-end onclick in login button
-  const Login = () => {
+  const Login =  () => {
     dispatch(GetUserData({ id: localStorage.userID }));
     if (signin_response === true) {
       navigate(`/${userID}/Dashboard`);
@@ -143,6 +143,9 @@ const Home = () => {
           </Collapse>
         </div>
         <TopBar />
+        <div className="smp-logo">
+          <img src={smpLogo} alt="" />
+        </div>
         {/* Signup Box / Signin Box */}
         <div className="userBox">
           {/* Signin Box */}
@@ -167,6 +170,7 @@ const Home = () => {
               name="login-username"
               autoComplete="username"
               placeholder="Enter your username"
+              onChange={(e) => {setCredentials_to_send({...credentials_to_send, uname: e.currentTarget.value})}}
             />
             <label className="labels signin-label" htmlFor="login-password">
               Password
@@ -178,6 +182,8 @@ const Home = () => {
               type="password"
               name="login-password"
               placeholder="Enter your password"
+              onChange={(e) => {setCredentials_to_send({...credentials_to_send ,passwd: e.currentTarget.value})}}
+
             />
             <a
               target="__blank"
@@ -187,8 +193,12 @@ const Home = () => {
             >
               <p>Forgot Password ?</p>
             </a>
-            <button className="btn-signin" onClick={()=>{send_inputs()
-               Login()}} type="submit">
+            <button className="btn-signin" onClick={()=>{
+                let resultSendInputs = send_inputs()
+                if (resultSendInputs===true) {
+                  Login()
+                }
+               }} type="submit">
               Sign In
             </button>
             <div className="system-status">

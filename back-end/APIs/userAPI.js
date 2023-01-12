@@ -83,8 +83,10 @@ router.post("/Signin", async (req, res) => {
        const resultOfPass = await bcrypt.compare(entred_credentials.passwd, doesUserPassExist.password)
         if (resultOfPass === true) {
             res.send(true)
+            console.log(resultOfPass)
         } else {
             res.send(false)
+            console.log(resultOfPass)
         }
     } else {
         res.send(false)
