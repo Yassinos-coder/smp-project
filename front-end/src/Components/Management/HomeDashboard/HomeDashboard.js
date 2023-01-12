@@ -5,66 +5,93 @@ import "./HomeDashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../../redux/tasksReducer";
 import Tasks from "../TaskToAchieve/Tasks";
-import '@fortawesome/free-solid-svg-icons'
-import { faEnvelopeCircleCheck, faArrowRightLong, faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelopeCircleCheck,
+  faArrowRightLong,
+  faEnvelopeOpen,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { deleteAllNotif, getNotify, markRead } from "../../../redux/NotifyerReducer";
-import { deleteAllRoleNotif, getAllNotifRole } from "../../../redux/NotifRoleReducer";
+import {
+  deleteAllNotif,
+  getNotify,
+  markRead,
+} from "../../../redux/NotifyerReducer";
+import {
+  deleteAllRoleNotif,
+  getAllNotifRole,
+} from "../../../redux/NotifRoleReducer";
 
 const HomeDashboard = () => {
   const dispatch = useDispatch();
   const userID = localStorage.userID;
-  const role = localStorage.role_name
-  const username = localStorage.getItem('userName')
-  const NotifByUsr = useSelector((state ) => state.NotifyerReducer.AllNotif)
-  const NotifToRole = useSelector((state) => state.NotifyerByRoleReducer.allNotifRole)
-  const [faNotif, setFaNotif ] = useState(faEnvelopeCircleCheck)
+  const role = localStorage.role_name;
+  const username = localStorage.getItem("userName");
+  const NotifByUsr = useSelector((state) => state.NotifyerReducer.AllNotif);
+  const NotifToRole = useSelector(
+    (state) => state.NotifyerByRoleReducer.allNotifRole
+  );
+  const pending_status = useSelector((state) => state.newUserReducer.Status);
+  const [faNotif, setFaNotif] = useState(faEnvelopeCircleCheck);
 
   useEffect(() => {
     dispatch(getTasks({ userid: userID }));
-    dispatch(getNotify({username: username}))
-    dispatch(getAllNotifRole({role: role}))
+    dispatch(getNotify({ username: username }));
+    dispatch(getAllNotifRole({ role: role }));
     NotifByUsr.map((notif) => {
       if (notif.read === false) {
-        setFaNotif(faEnvelopeCircleCheck)
+        setFaNotif(faEnvelopeCircleCheck);
       } else {
-        setFaNotif(faEnvelopeOpen)
+        setFaNotif(faEnvelopeOpen);
       }
-    })
-
-  },[]);
-
-
+    });
+  }, []);
 
   const markReadHandler = (i) => {
     NotifByUsr.map((notif) => {
       if (notif === i) {
         if (notif.read === false) {
-          dispatch(markRead({notifid:i._id, username:username, readUpdate:true}))
-          setFaNotif(faEnvelopeOpen)
+          dispatch(
+            markRead({ notifid: i._id, username: username, readUpdate: true })
+          );
+          setFaNotif(faEnvelopeOpen);
         } else {
-          dispatch(markRead({notifid:i._id, username:username, readUpdate:false}))
-          setFaNotif(faEnvelopeCircleCheck)
+          dispatch(
+            markRead({ notifid: i._id, username: username, readUpdate: false })
+          );
+          setFaNotif(faEnvelopeCircleCheck);
         }
       }
-    })
-  }
+    });
+  };
 
   const handleClearAll = () => {
-    dispatch(deleteAllNotif({username:username}))
-    dispatch(deleteAllRoleNotif({role:role}))
-  }
+    dispatch(deleteAllNotif({ username: username }));
+    dispatch(deleteAllRoleNotif({ role: role }));
+  };
 
   return (
     <>
+      <div
+        className="spinner-div"
+        style={
+          pending_status === "Pending"
+            ? { visibility: "visible" }
+            : { visibility: "hidden" }
+        }
+      >
+        <div className="spinner"></div>
+      </div>
       <div className="HD-Boxes">
-        <div className="box1">  {/*    School Data */}
+        <div className="box1">
+          {" "}
+          {/*    School Data */}
           <h3
             style={{
               fontSize: "20px",
               marginLeft: "2%",
               textDecoration: "underline",
-              textUnderlineOffset:'3px'
+              textUnderlineOffset: "3px",
             }}
           >
             School Data :
@@ -80,7 +107,6 @@ const HomeDashboard = () => {
               </tr>
             </thead>
             <thead>
-              
               <tr>
                 <td>School ID :</td>
                 <td>
@@ -104,7 +130,6 @@ const HomeDashboard = () => {
               </tr>
             </thead>
             <thead>
-              
               <tr>
                 <td>Total Students Number :</td>
                 <td>
@@ -113,13 +138,10 @@ const HomeDashboard = () => {
               </tr>
             </thead>
             <thead>
-
               <tr>
+                <td>Website :</td>
                 <td>
-                  Website :
-                </td>
-                <td>
-                <a
+                  <a
                     target="_blank"
                     href="https://google.com"
                     rel="noreferrer noopener"
@@ -131,26 +153,30 @@ const HomeDashboard = () => {
             </thead>
           </table>
         </div>
-        <div className="box2"> {/*   Calendar */}
+        <div className="box2">
+          {" "}
+          {/*   Calendar */}
           <h3
             style={{
               fontSize: "20px",
               marginLeft: "2%",
               textDecoration: "underline",
-              textUnderlineOffset:'3px'
+              textUnderlineOffset: "3px",
             }}
           >
             Calendar :
           </h3>
           <div className="calendar"></div>
         </div>
-        <div className="box3">  {/*   Notifications */}
+        <div className="box3">
+          {" "}
+          {/*   Notifications */}
           <h3
             style={{
               fontSize: "20px",
               marginLeft: "2%",
               textDecoration: "underline",
-              textUnderlineOffset:'3px'
+              textUnderlineOffset: "3px",
             }}
           >
             Notifications :
@@ -159,43 +185,70 @@ const HomeDashboard = () => {
             <p onClick={handleClearAll}>Clear All</p>
           </div>
           <div className="display-notif">
-            <div className="empty-box" style={NotifByUsr.length===0 && NotifToRole.length===0 ? {visibility: 'visible'}:{visibility:'hidden'}}>
+            <div
+              className="empty-box"
+              style={
+                NotifByUsr.length === 0 && NotifToRole.length === 0
+                  ? { visibility: "visible" }
+                  : { visibility: "hidden" }
+              }
+            >
               <FontAwesomeIcon className="fa-empty-box" icon={faEnvelopeOpen} />
               <p>Empty Mail Box</p>
             </div>
-            {
-              NotifToRole.map((notif, index) => (
-                <div className="notif">
-                  <FontAwesomeIcon onClick={()=> {markReadHandler(notif)}} className="faNotif" icon={faNotif} />
-                  <p className="notfi_from_usr">from {notif.notif_from_user} <strong>To All {role}</strong>:</p>
-                  <p className="notif_sbjct"> {notif.notif_subject} </p>  
-                  <p className="notif_msg"> 
-                  <FontAwesomeIcon className="faNotif2" icon={faArrowRightLong} />
-                  { notif.notif_msg }</p>
-                </div>
-              ))
-            }
-            {
-              NotifByUsr.map((notif, index) => (
-                <div className="notif">
-                  <FontAwesomeIcon onClick={()=> {markReadHandler(notif)}} className="faNotif" icon={faNotif} />
-                  <p className="notfi_from_usr">from {notif.notif_from_user}:</p>
-                  <p className="notif_sbjct"> {notif.notif_subject} </p>  
-                  <p className="notif_msg"> 
-                  <FontAwesomeIcon className="faNotif2" icon={faArrowRightLong} />
-                  { notif.notif_msg }</p>
-                </div>
-              ))
-            }
+            {NotifToRole.map((notif, index) => (
+              <div className="notif">
+                <FontAwesomeIcon
+                  onClick={() => {
+                    markReadHandler(notif);
+                  }}
+                  className="faNotif"
+                  icon={faNotif}
+                />
+                <p className="notfi_from_usr">
+                  from {notif.notif_from_user} <strong>To All {role}</strong>:
+                </p>
+                <p className="notif_sbjct"> {notif.notif_subject} </p>
+                <p className="notif_msg">
+                  <FontAwesomeIcon
+                    className="faNotif2"
+                    icon={faArrowRightLong}
+                  />
+                  {notif.notif_msg}
+                </p>
+              </div>
+            ))}
+            {NotifByUsr.map((notif, index) => (
+              <div className="notif">
+                <FontAwesomeIcon
+                  onClick={() => {
+                    markReadHandler(notif);
+                  }}
+                  className="faNotif"
+                  icon={faNotif}
+                />
+                <p className="notfi_from_usr">from {notif.notif_from_user}:</p>
+                <p className="notif_sbjct"> {notif.notif_subject} </p>
+                <p className="notif_msg">
+                  <FontAwesomeIcon
+                    className="faNotif2"
+                    icon={faArrowRightLong}
+                  />
+                  {notif.notif_msg}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="box4"> {/*    Task To Achieve */}
+        <div className="box4">
+          {" "}
+          {/*    Task To Achieve */}
           <h3
             style={{
               fontSize: "20px",
               marginLeft: "2%",
               textDecoration: "underline",
-              textUnderlineOffset:'3px'
+              textUnderlineOffset: "3px",
             }}
           >
             Task To Achieve :

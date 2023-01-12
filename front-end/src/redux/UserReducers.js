@@ -69,7 +69,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [getAllUsersList.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [getAllUsersList.rejected]: (state, action) => {
             state.allUsersList = action.payload
@@ -79,7 +79,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [newUserReducer.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [newUserReducer.rejected]: (state) => {
             state.Error = 'Rejected'
@@ -89,7 +89,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [GetUserData.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [GetUserData.rejected]: (state, action) => {
             state.userInfo = action.payload
@@ -100,7 +100,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [Signin.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [Signin.rejected]: (state, action) => {
             state.isloginCorrect = action.payload
@@ -111,7 +111,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [getUserID.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [getUserID.rejected]: (state) => {
             state.Error = 'Rejected'
@@ -121,7 +121,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [UpdateMail.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [UpdateMail.rejected]: (state, action) => {
             state.EmailUpdated = action.payload
@@ -132,7 +132,7 @@ const newUserHandler = createSlice({
             state.Status = 'Accepted'
         },
         [UpdatePassword.pending]: (state) => {
-            state.Status = 'Pending...'
+            state.Status = 'Pending'
         },
         [UpdatePassword.rejected]: (state, action) => {
             state.UpdatePassword = action.payload
