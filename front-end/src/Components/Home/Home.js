@@ -64,7 +64,6 @@ const Home = () => {
     // };
     dispatch(Signin({ credentials: credentials_to_send }));
     dispatch(getUserID({ username: credentials_to_send.uname }));
-    return true
   };
   // below we check on response from back-end onclick in login button
   const Login =  () => {
@@ -182,7 +181,9 @@ const Home = () => {
               type="password"
               name="login-password"
               placeholder="Enter your password"
-              onChange={(e) => {setCredentials_to_send({...credentials_to_send ,passwd: e.currentTarget.value})}}
+              onChange={(e) => {setCredentials_to_send({...credentials_to_send ,passwd: e.currentTarget.value})
+              send_inputs()
+            }}
 
             />
             <a
@@ -194,10 +195,7 @@ const Home = () => {
               <p>Forgot Password ?</p>
             </a>
             <button className="btn-signin" onClick={()=>{
-                let resultSendInputs = send_inputs()
-                if (resultSendInputs===true) {
                   Login()
-                }
                }} type="submit">
               Sign In
             </button>
