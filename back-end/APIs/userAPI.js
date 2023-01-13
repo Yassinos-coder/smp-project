@@ -41,6 +41,7 @@ router.post("/AddAccount", async (req, res) => {
             if (err) {console.log("Error Occurs", err);}
           });
           console.log("User inserted");
+          res.send(newUser)
         });
       });
     }

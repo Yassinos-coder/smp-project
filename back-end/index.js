@@ -9,6 +9,7 @@ const LevelRouter = require('./APIs/LevelAPI')
 const TaskRouter = require('./APIs/TasksAPI')
 const NotifyerRouter = require('./APIs/NotifyerAPI')
 const NotifyerRoleRouter = require('./APIs/NotifByRole')
+const TeachersRouter = require('./APIs/TeachersAPI')
 const fileupload = require("express-fileupload")
 require('dotenv').config()
 
@@ -32,6 +33,7 @@ app.use(LevelRouter)
 app.use(TaskRouter)
 app.use(NotifyerRouter)
 app.use(NotifyerRoleRouter)
+app.use(TeachersRouter)
 
 app.get('/', (req, res) => {
     res.send(true)

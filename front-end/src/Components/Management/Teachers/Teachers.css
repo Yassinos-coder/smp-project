@@ -100,3 +100,14 @@
 .filter_by_classroom select {
     width: 100%;
 }
+
+
+.data-table-2 {
+    margin: auto;
+    width: 97%;
+    max-width: 1605px;
+    height: 79vh;
+    position: relative;
+    top: 4%;
+    border-radius: 8px;
+}

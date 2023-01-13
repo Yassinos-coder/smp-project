@@ -75,7 +75,8 @@ const newUserHandler = createSlice({
             state.allUsersList = action.payload
             state.Error = 'Rejected'
         },
-        [newUserReducer.fulfilled]: (state) => {
+        [newUserReducer.fulfilled]: (state, action) => {
+            state.userInfo = [...state.userInfo, action.payload]
             state.Status = 'Accepted'
         },
         [newUserReducer.pending]: (state) => {

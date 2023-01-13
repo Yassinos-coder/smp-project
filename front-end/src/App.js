@@ -21,6 +21,7 @@ import { GetStudentsList } from "./redux/StudentsAccountsReducer";
 //
 import { GetUserData } from "./redux/UserReducers";
 import StudentsDetails from "./Components/Management/Students/StudentsDetails";
+import { getTeachers } from "./redux/TeachersReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
     dispatch(GetAllLevels());
     dispatch(GetClassroomGroups());
     dispatch(GetStudentsList());
+    dispatch(getTeachers())
 
   },[]);
 

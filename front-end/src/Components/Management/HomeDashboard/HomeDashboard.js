@@ -45,7 +45,7 @@ const HomeDashboard = () => {
         setFaNotif(faEnvelopeOpen);
       }
     });
-  }, []);
+  },[]);
 
   const markReadHandler = (i) => {
     NotifByUsr.map((notif) => {
