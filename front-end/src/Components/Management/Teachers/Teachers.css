@@ -111,3 +111,185 @@
     top: 4%;
     border-radius: 8px;
 }
+
+/* ********************************************************* */ 
+/*   TEACHER DETAILS CSS       */
+.MainBody-Dialog {
+    background-color: white;
+    max-width: 1875px;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 89vh;
+    overflow-y: auto;
+}
+
+.TeacherPIC {
+    background-color: rgba(128, 128, 128, 0.411);
+    max-width: 500px;
+    height: 50vh;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.TeacherPIC img {
+    width: 100%;
+    height: inherit;
+}
+
+.TeacherData1Display {
+    background-color: rgba(128, 128, 128, 0.418);
+    position: relative;
+    height: 25vh;
+    max-width: 1279px;
+    left: 30%;
+    top: -56.3%;
+}
+
+.part1-data {
+    padding: 21px 17px;
+    font-size: 19px;
+}
+.hr-part1-data {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 25%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part1-data-2 {
+    position: relative;
+    left: 35%;
+    margin-top: -14.7%;
+    font-size: 19px;
+    max-width: 330px;
+}
+
+.hr-part1-data-2 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 55%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part1-data-3 {
+    position: relative;
+    left: 65%;
+    max-width: 444px;
+    margin-top: -10%;
+}
+
+.part1-data-3 h3 {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.detailsBtn {
+    display: block;
+    padding: 5px 50px;
+    margin-top: 2%;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.detailsBtn:hover {
+    background-color: green;
+}
+
+.TeacherData2Display {
+    position: relative;
+    background-color: rgba(128, 128, 128, 0.418);
+    left: 30%;
+    top: -7.5%;
+    height: 24vh;
+    max-width: 1279px;
+} 
+
+.part2-data {
+    max-width: 32%;
+    margin-top: -31.4%;
+    width: 427px;
+    height: 24.0vh;
+}
+
+
+.div-upload button{
+    padding: 1px 11px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+}
+
+.div-upload button:hover {  
+    background-color: green;
+}
+
+.div-upload > input {
+    max-width: 180px;
+    width: 41%;
+}
+
+.absence {
+
+}
+
+.absense-table {
+    width: 100%;
+}
+
+.tbody-absense {
+    overflow-y: scroll;
+}
+
+.hr-part2-data-1 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 25%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part2-data-2 {
+    position: relative;
+    top: -100%;
+    left: 33.4%;
+    width: 30%;
+    max-width: 386px;
+    height: 24vh;
+}
+
+.hr-part2-data-2 {
+    background-color: black;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    position: absolute;
+    width: 17%;
+    height: 2px;
+    left: 55%;
+    border: 2px;
+    top: 49.5%;
+}
+
+.part2-data-3 {
+    position: relative;
+    top: -200%;
+    left: 66.4%;
+    width: 30%;
+    max-width: 386px;
+    height: 24vh;
+}

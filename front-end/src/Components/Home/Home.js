@@ -62,11 +62,12 @@ const Home = () => {
     //   uname: uname_input.current.value,
     //   passwd: passwd_input.current.value,
     // };
-    dispatch(Signin({ credentials: credentials_to_send }));
-    dispatch(getUserID({ username: credentials_to_send.uname }));
+
   };
   // below we check on response from back-end onclick in login button
   const Login =  () => {
+    dispatch(Signin({ credentials: credentials_to_send }));
+    dispatch(getUserID({ username: credentials_to_send.uname }));
     dispatch(GetUserData({ id: localStorage.userID }));
     if (signin_response === true) {
       navigate(`/${userID}/Dashboard`);
@@ -182,7 +183,6 @@ const Home = () => {
               name="login-password"
               placeholder="Enter your password"
               onChange={(e) => {setCredentials_to_send({...credentials_to_send ,passwd: e.currentTarget.value})
-              send_inputs()
             }}
 
             />

@@ -22,6 +22,7 @@ import { GetStudentsList } from "./redux/StudentsAccountsReducer";
 import { GetUserData } from "./redux/UserReducers";
 import StudentsDetails from "./Components/Management/Students/StudentsDetails";
 import { getTeachers } from "./redux/TeachersReducer";
+import TeachersDetails from "./Components/Management/Teachers/TeachersDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -77,10 +78,14 @@ function App() {
                 <Route path="/:userID/Dashboard" element={<Management />}>
                   <Route index element={<HomeDashboard />} />
                   <Route path="AddAccount" element={<AddAccount />} />
-                  <Route path="Students" element={<Students />} />
+                  <Route path="Students" element={<Students />} >
+                    <Route path="StudentDetails/:student_id" element={<StudentsDetails/>}/>
+                  </Route>                  
                   <Route path="Classrooms" element={<Classrooms />} />
                   <Route path="Levels" element={<Levels />} />
-                  <Route path="Teachers" element={<Teachers />} />
+                  <Route path="Teachers" element={<Teachers />} >
+                    <Route path="TeacherDetails/:teacher_id" element={<TeachersDetails/>}></Route>  
+                  </Route>                  
                   <Route path="Notifiyer" element={<Notifiyer />} />
                   <Route path="GraphData" element={<GraphData />} />
                   <Route path="MyAccount" element={<MyAccount />} />
@@ -95,7 +100,9 @@ function App() {
                   </Route>
                   <Route path="Classrooms" element={<Classrooms />} />
                   <Route path="Levels" element={<Levels />} />
-                  <Route path="Teachers" element={<Teachers />} />
+                  <Route path="Teachers" element={<Teachers />} >
+                    <Route path="TeacherDetails/:teacher_id" element={<TeachersDetails/>}></Route>  
+                  </Route>
                   <Route path="Notifiyer" element={<Notifiyer />} />
                   <Route path="GraphData" element={<GraphData />} />
                   <Route path="MyAccount" element={<MyAccount />} />

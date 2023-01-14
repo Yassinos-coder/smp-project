@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
+import { Link, Outlet } from "react-router-dom";
 
 const Teachers = () => {
   const allLevels = useSelector((state) => state.LevelsReducer.LevelInfo);
@@ -92,11 +93,14 @@ const Teachers = () => {
                   <td> {teacher.address} </td>
                   <td> {teacher.phonenumber} </td>
                   <td> {teacher.email} </td>
-                  <td>More Details</td>
+                  <td>
+                    <Link to={`TeacherDetails/${teacher._id}`} state={teacher}>More Details</Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          <Outlet />
         </div>
       </div>
     </>
