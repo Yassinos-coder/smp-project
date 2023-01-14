@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import './Teachers.css'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./Teachers.css";
 
 // Below Imports For Add Student Magical Canvas
 import Dialog from "@mui/material/Dialog";
@@ -12,18 +12,28 @@ import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { assignClass, getTeachingClass, getTeachingLevel } from "../../../redux/TeachersReducer";
 
 const TeachersDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const [classData, setClassData] = useState();
   // TeacherDataFromCmp stands for students data from component Student whice is passed via locationstate
   const TeacherDataFromCmp = location.state;
+  const levelOfTeaching = useSelector((state) => state.TeachersReducer.TeacherLevelData)
+  const classlOfTeaching = useSelector((state) => state.TeachersReducer.TeacherClassData)
+  useEffect(() => {
+    dispatch(getTeachingClass({teacher_id:TeacherDataFromCmp._id}))
+    dispatch(getTeachingLevel({teacher_id:TeacherDataFromCmp._id}))
+    console.log('1', classlOfTeaching)
+    console.log(levelOfTeaching)
+  },[])
 
-  const [openDetails, setOpenDetails] = useState(true);
+  const [openTeacherDetails, setOpenTeacherDetails] = useState(true);
 
-  const handleCloseDetails = () => {
-    setOpenDetails(false);
+  const handleCloseTeacherDetails = () => {
+    setOpenTeacherDetails(false);
     navigate(-1);
   };
 
@@ -36,8 +46,7 @@ const TeachersDetails = () => {
   const fileUpload = () => {
     const file = new FormData();
     file.append("image", imageUpload);
-    dispatch(
-    );
+    dispatch();
   };
 
   const handlePasswordChange = () => {
@@ -52,21 +61,36 @@ const TeachersDetails = () => {
         console.error(err);
       });
   };
+  let level;
+  let classgroup ;
+
+  const handleClassAssign = () => {
+    console.log(level)
+    console.log(classgroup)
+    dispatch(
+      assignClass({teacher_id: TeacherDataFromCmp._id, level:level, classroomGroup: classgroup})
+    );
+  };
 
   return (
     <div>
       <Dialog
         fullScreen
-        open={openDetails}
-        onClose={handleCloseDetails}
+        open={openTeacherDetails}
+        onClose={handleCloseTeacherDetails}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: "relative", backgroundColor: "rgba(255, 68, 0, 0.7)" }}>
+        <AppBar
+          sx={{
+            position: "relative",
+            backgroundColor: "rgba(255, 68, 0, 0.7)",
+          }}
+        >
           <Toolbar>
             <IconButton
               edge="start"
               color="inherit"
-              onClick={handleCloseDetails}
+              onClick={handleCloseTeacherDetails}
               aria-label="close"
             >
               <CloseIcon />
@@ -96,10 +120,10 @@ const TeachersDetails = () => {
               <p>Dob: {TeacherDataFromCmp.dob}</p>
               <p>Email Address : {TeacherDataFromCmp.email}</p>
               <p>Living Address: {TeacherDataFromCmp.address}</p>
-              <p>Grade / Level Codes : {TeacherDataFromCmp.level}</p>
+              <p>Grade / Level Codes : {levelOfTeaching.map((level, index) => (<span key={index} style={{display:'inline'}}>{level.level} /</span>))}</p>
               <hr className="hr-part1-data" />
               <div className="part1-data-2">
-                <p>Classroom Groups : {TeacherDataFromCmp.classroom_group} </p>
+                <p>Classroom Groups :{classlOfTeaching.map((classroom, index) => (<span key={index} style={{display:'inline'}}>{classroom.classroomGroup} /</span>))}</p>
                 <p>Subjects Of Teaching</p>
                 <p>Years Of Experience</p>
               </div>
@@ -127,8 +151,7 @@ const TeachersDetails = () => {
                 <button
                   className="detailsBtn btn-action3"
                   onClick={() => {
-                    dispatch(
-                    );
+                    dispatch();
                     navigate(-1);
                   }}
                 >
@@ -140,11 +163,14 @@ const TeachersDetails = () => {
           <div className="TeacherData2Display">
             <div className="part2-data">
               <div className="absence">
-                <table className="absense-table" style={{border:'1px solid black', margin:'auto 1%'}}>
+                <table
+                  className="absense-table"
+                  style={{ border: "1px solid black", margin: "auto 1%" }}
+                >
                   <thead className="tbody-absense">
                     <tr>
-                      <td width='50%'>Day When Absent :</td>
-                      <td width='50%'>Reason :</td>
+                      <td width="50%">Day When Absent :</td>
+                      <td width="50%">Reason :</td>
                     </tr>
                   </thead>
                   <tbody className="tbody-absense"></tbody>
@@ -153,14 +179,21 @@ const TeachersDetails = () => {
             </div>
             <hr className="hr-part2-data-1" />
             <div className="part2-data-2">
-              <h3 style={{textAlign:'center'}}>Something Else Goes Here.</h3>
+              <input type="text" name="level" onChange={(e) =>{level = e.currentTarget.value}} placeholder="Enter level EX: CE1"/>
+              <input type="text" onChange={(e) =>{classgroup = e.currentTarget.value}} name="group" placeholder="Enter Classroom Group EX: A1"/>
+              <button
+                className="detailsBtn btn-action4"
+                onClick={handleClassAssign}
+              >
+                Assign Classroom Group & Level
+              </button>
             </div>
             <hr className="hr-part2-data-2" />
             <div className="part2-data-3">
-              <h3 style={{textAlign:'center'}}>Something Else Goes Here.</h3>
+              <h3 style={{ textAlign: "center" }}>Something Else Goes Here.</h3>
             </div>
           </div>
-          <h1 style={{textAlign:'center'}}>Other Data Will Go Here Soon.</h1>
+          <h1 style={{ textAlign: "center" }}>Other Data Will Go Here Soon.</h1>
         </div>
       </Dialog>
     </div>

@@ -80,7 +80,7 @@ const Teachers = () => {
             </thead>
             <tbody className="tbody-teachers">
               {allTeacher.map((teacher, index) => (
-                <tr>
+                <tr key={index}>
                   <td>
                     <FontAwesomeIcon
                       style={{ paddingLeft: "5px" }}

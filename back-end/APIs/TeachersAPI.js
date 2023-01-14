@@ -34,5 +34,23 @@ router.get('/ClassroomsOfTeaching/:id', async(req, res) => {
     }
 })
 
+router.post('/assignClass/:teacher_id/:level/:classroomGroup', async(req, res ) => {
+    let teacher_id = req.params.teacher_id
+    let level = req.params.level
+    let classroomGroup = req.params.classroomGroup
+
+    try {
+        const newLevel = new TeachersDBModel({
+            teacherID: teacher_id,
+            level: level,
+            classroomGroup: classroomGroup
+        })
+        await newLevel.save()
+        res.send(newLevel)
+    } catch (err) {
+        console.error('Error in assignClass', err)
+    }
+})
+
 
 module.exports = router
