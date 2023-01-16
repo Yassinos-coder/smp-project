@@ -348,10 +348,10 @@ const Levels = () => {
               {allLevels.map((level, index) => (
                 <tr key={index}>
                   <td style={{backgroundColor:'red'}}>{index + 1}</td>
-                  <td style={{backgroundColor:'rgba(0, 128, 0, 0.6)'}}>{level.levelname}</td>
-                  <td style={{backgroundColor:'rgba(0, 128, 0, 0.6)'}}>{level.leveltype}</td>
-                  <td style={{backgroundColor:'rgba(0, 128, 0, 0.6)'}}>{level.levelcode}</td>
-                  <td style={{backgroundColor:'rgba(0, 128, 0, 0.6)'}}>{}</td>
+                  <td>{level.levelname}</td>
+                  <td>{level.leveltype}</td>
+                  <td>{level.levelcode}</td>
+                  <td>{}</td>
                 </tr>
               ))}
             </tbody>

@@ -166,7 +166,9 @@ const HomeDashboard = () => {
           >
             Calendar :
           </h3>
-          <div className="calendar"></div>
+          <div className="calendar">
+            <h2 style={{textAlign:'center'}}>Calendar is to be set here.</h2>
+          </div>
         </div>
         <div className="box3">
           {" "}
