@@ -417,7 +417,7 @@ const Students = () => {
             </thead>
             <tbody className="tbody-students">
               {studentsList.map((student, index) => (
-                <tr>
+                <tr key={index}>
                   <td>
                     <FontAwesomeIcon
                       style={{ paddingLeft: "5px" }}

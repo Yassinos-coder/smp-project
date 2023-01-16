@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Teachers.css";
@@ -12,13 +13,12 @@ import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { assignClass, getTeachingClass, getTeachingLevel } from "../../../redux/TeachersReducer";
+import { assignClass, getTeachingClass, getTeachingLevel, profileAvatarUploader } from "../../../redux/TeachersReducer";
 
 const TeachersDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const [classData, setClassData] = useState();
   // TeacherDataFromCmp stands for students data from component Student whice is passed via locationstate
   const TeacherDataFromCmp = location.state;
   const levelOfTeaching = useSelector((state) => state.TeachersReducer.TeacherLevelData)
@@ -46,7 +46,7 @@ const TeachersDetails = () => {
   const fileUpload = () => {
     const file = new FormData();
     file.append("image", imageUpload);
-    dispatch();
+    dispatch(profileAvatarUploader({image: file, userID:TeacherDataFromCmp._id}));
   };
 
   const handlePasswordChange = () => {

@@ -1,0 +1,13 @@
+.GraphMain {
+    width: 87.1%;
+    height: 900px;
+    margin-top: -47.35%;
+    margin-left: 12.95%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.text {
+    border: 1px black solid;
+    margin: auto;
+}

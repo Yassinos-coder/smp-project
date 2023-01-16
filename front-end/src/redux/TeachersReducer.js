@@ -57,6 +57,12 @@ export const assignClass = createAsyncThunk(
   }
 );
 
+export const profileAvatarUploader = createAsyncThunk('accounts/profileAvatarUploader', async({userID,image}) =>{
+  return axios.post(`${API_URL}/avatarUploader/${userID}`, image)
+  .then((res) => {return res.data})
+  .catch((err) => {console.error(err)})
+})
+
 const TeacherReducer = createSlice({
   name: "TeacherHandler",
   initialState: {
@@ -84,16 +90,16 @@ const TeacherReducer = createSlice({
       state.Status = "Rejected";
     },
     [assignClass.fulfilled]: (state, action) => {
-      state.TeacherClassData = action.payload;
-      state.TeacherClassDataUnfiltered = action.payload;
+      state.TeacherClassData = [...state.TeacherClassData ,action.payload]
+      state.TeacherClassDataUnfiltered = [...state.TeacherClassDataUnfiltered ,action.payload]
       state.Status = "Accepted";
     },
     [assignClass.pending]: (state, action) => {
       state.Status = "Pending";
     },
     [assignClass.rejected]: (state, action) => {
-      state.TeacherClassData = action.payload;
-      state.TeacherClassDataUnfiltered = action.payload;
+      state.TeacherClassData = [...state.TeacherClassData ,action.payload]
+      state.TeacherClassDataUnfiltered = [...state.TeacherClassDataUnfiltered ,action.payload]
       state.Status = "Rejected";
     },
     [getTeachingClass.fulfilled]: (state, action) => {

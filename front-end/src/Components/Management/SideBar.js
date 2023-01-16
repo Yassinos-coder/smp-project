@@ -65,7 +65,7 @@ const SideBar = () => {
                   Add Account
                 </Link>
               </li>
-              <li>
+              <li style={{pointerEvents: visibilityforOwner.pointerEvents, opacity: visibilityforOwner.opacity}}>
                 <Link to="Teachers">
                   <FontAwesomeIcon className="fa" icon={faPersonChalkboard} />
                   Teachers List
@@ -89,7 +89,7 @@ const SideBar = () => {
                   Classrooms List
                 </Link>
               </li>
-              <li style={{pointerEvents: visibilityforOwner.pointerEvents, opacity: visibilityforOwner.opacity}} >
+              <li>
                 <Link to="Notifiyer">
                   <FontAwesomeIcon className="fa" icon={faMessage} />
                   Notifiyer

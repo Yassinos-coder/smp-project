@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
@@ -56,7 +57,7 @@ function App() {
                   <Route path="Students" element={<Students />} />
                   {/* <Route path="Classrooms" element={<Classrooms />} /> */}
                   {/* <Route path="Teachers" element={<Teachers />} /> */}
-                  {/* <Route path="Notifiyer" element={<Notifiyer />} /> */}
+                  <Route path="Notifiyer" element={<Notifiyer />} />
                   {/* <Route path="GraphData" element={<GraphData />} /> */}
                   <Route path="MyAccount" element={<MyAccount />} />
                 </Route>
@@ -68,8 +69,8 @@ function App() {
                   <Route path="Students" element={<Students />} />
                   <Route path="Classrooms" element={<Classrooms />} />
                   <Route path="Levels" element={<Levels />} />
-                  <Route path="Teachers" element={<Teachers />} />
-                  {/* <Route path="Notifiyer" element={<Notifiyer />} /> */}
+                  {/* <Route path="Teachers" element={<Teachers />} /> */}
+                  <Route path="Notifiyer" element={<Notifiyer />} />
                   {/* <Route path="GraphData" element={<GraphData />} /> */}
                   <Route path="MyAccount" element={<MyAccount />} />
                 </Route>

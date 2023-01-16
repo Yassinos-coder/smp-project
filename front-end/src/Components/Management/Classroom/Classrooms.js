@@ -243,7 +243,7 @@ const Classrooms = () => {
             </thead>
             <tbody>
               {AllGroups.map((group, index) => (
-                <tr>
+                <tr key={index}>
                   <td style={{backgroundColor:'rgba(255, 68, 0)'}}>{index + 1}</td>
                   <td>{group.name}</td>
                   <td> {group.code} </td>
