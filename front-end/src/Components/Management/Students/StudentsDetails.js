@@ -110,7 +110,7 @@ const StudentsDetails = () => {
                 <p>Mother'S CIN : {studentsDataFromCmp.mother_cin} </p>
               </div>
               <hr className="hr-part1-data-2" />
-              <div className="part1-data-3">
+              <div className="part1-data-7">
                 <h3>Actions: </h3>
                 <div className="div-upload">
                   <input
