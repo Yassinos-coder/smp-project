@@ -26,8 +26,7 @@ const TeachersDetails = () => {
   useEffect(() => {
     dispatch(getTeachingClass({teacher_id:TeacherDataFromCmp._id}))
     dispatch(getTeachingLevel({teacher_id:TeacherDataFromCmp._id}))
-    console.log('1', classlOfTeaching)
-    console.log(levelOfTeaching)
+
   },[])
 
   const [openTeacherDetails, setOpenTeacherDetails] = useState(true);
@@ -65,8 +64,7 @@ const TeachersDetails = () => {
   let classgroup ;
 
   const handleClassAssign = () => {
-    console.log(level)
-    console.log(classgroup)
+
     dispatch(
       assignClass({teacher_id: TeacherDataFromCmp._id, level:level, classroomGroup: classgroup})
     );

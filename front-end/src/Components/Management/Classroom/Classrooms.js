@@ -77,7 +77,6 @@ const Classrooms = () => {
   };
 
   const deleteClassrommGroup = () => {
-    console.log(LevelCodeChoice, LevelGroupChoice);
     dispatch(
       deleteClassroom({
         classroomcode: LevelGroupChoice,

@@ -87,7 +87,6 @@ const Notifiyer = () => {
                 <button
                   type="submit"
                   onClick={() => {
-                    console.log(newNotifData);
                     dispatch(sendNotif(newNotifData));
                   }}
                 >
@@ -147,7 +146,6 @@ const Notifiyer = () => {
                 <button
                   type="submit"
                   onClick={() => {
-                    console.log(newNotifRole);
                     dispatch(sendNotifByRole(newNotifRole));
                   }}
                 >
