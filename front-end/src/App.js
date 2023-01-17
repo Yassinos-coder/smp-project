@@ -14,7 +14,7 @@ import Teachers from "./Components/Management/Teachers/Teachers";
 import MyAccount from "./Components/Management/MyAccount/MyAccount";
 import AddAccount from "./Components/Management/AddAccount/AddAccount";
 import { useDispatch, useSelector } from "react-redux";
-import Levels from "./Components/Management/Levels/Levels";
+import Levels from "./Components/Management/Levels/Levels"
 import { useEffect } from "react";
 import { GetAllLevels } from "./redux/LevelsReducer";
 import { GetClassroomGroups } from "./redux/ClassroomsReducer";
