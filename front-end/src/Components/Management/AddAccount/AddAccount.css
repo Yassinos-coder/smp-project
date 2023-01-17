@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 .UserAddingAccount {
     width: 87.1%;
     height: 900px;
@@ -8,12 +9,12 @@
 }
 
 .Signup {
-    background-color: grey;
+    background-color: rgb(128, 128, 128, 0.5);
     position: relative;
     margin: auto;
-    max-width: 89%;
-    top: 6%;
-    height: 75vh;
+    max-width: 92%;
+    top: 1%;
+    height: 71vh;
     border-radius: 10px;
 }
 
@@ -54,7 +55,7 @@
 
 .part2 {
     max-width: 28%;
-    margin-left: 55%;
+    margin-left: 63%;
     margin-top: -25.4%;
     height: 39.4vh;
 }
@@ -70,8 +71,8 @@
 .btn-signup {
     font-size: 18px;
     letter-spacing: 2px;
-    margin-top: 6.2%;
-    margin-left: 39%;
+    margin-top: 3.2%;
+    margin-left: 43%;
     border: none;
     background-color: rgb(17, 17, 17);
     color: white;
@@ -90,4 +91,25 @@
     position: absolute;
     z-index: 1;
     width: 20%;
+}
+
+.toKnow {
+    position: absolute;
+    color: black;
+    margin: 11% 31%;
+    width: 21.5%;
+    max-width: 500px;
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 8px;
+}
+
+.toknow-list-ul {
+    padding-left: 2%;
+    list-style-type: none;
+    line-height: 3.4vh;
+    font-size: 17px;
+}
+
+.toknow-list-ul li {
+    font-family: 'Poppins', sans-serif;
 }

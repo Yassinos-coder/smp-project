@@ -43,6 +43,15 @@ const AddAccount = () => {
             </Alert>
           </Collapse>
         </div>
+        <div className="toKnow">
+          <ul className="toknow-list-ul">
+            <li className="toknow-list-li">- Get School ID from your supervisor if you don't have it.</li>
+            <li className="toknow-list-li">- Username for all users must follow this example: firstname.lastname .</li>
+            <li className="toknow-list-li">- Make sure that the Email Address is correct.</li>
+            <li className="toknow-list-li">- Password for the user is being generated automatically and sent to his Email Address.</li>
+            <li className="toknow-list-li">- Date Of Birth must follow this format: dd/mm/yy.</li>
+          </ul>
+        </div>
         <div className="Signup">
           <form
             onSubmit={(e) => {
