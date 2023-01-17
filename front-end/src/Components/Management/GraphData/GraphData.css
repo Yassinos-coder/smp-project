@@ -1,13 +1,15 @@
 .GraphMain {
     width: 87.1%;
-    height: 900px;
-    margin-top: -47.35%;
-    margin-left: 12.95%;
+    height: 96vh;
+    margin-top: -53.77%;
+    margin-left: 12.95%; 
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
 .text {
-    border: 1px black solid;
+    position: relative;
     margin: auto;
+    width: 50%;
+    max-width: 570px;
 }
