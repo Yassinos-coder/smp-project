@@ -68,7 +68,7 @@ const Home = () => {
   const Login =  () => {
     dispatch(Signin({ credentials: credentials_to_send }));
     dispatch(getUserID({ username: credentials_to_send.uname }));
-    dispatch(GetUserData({ id: localStorage.userID }));
+    dispatch(GetUserData({ username: credentials_to_send.uname }));
     if (signin_response === true) {
       navigate(`/${userID}/Dashboard`);
       localStorage.userName = uname_input.current.value;

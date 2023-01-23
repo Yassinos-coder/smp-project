@@ -26,8 +26,8 @@ export const getUserID = createAsyncThunk('accounts/getUserID', async({username}
     .catch((err) => {console.error(err)})
 })
 
-export const GetUserData = createAsyncThunk('accounts/GetUserData', async({id})=> {
-    return axios.get(`${API_URL}/GetUserData/${id}`)
+export const GetUserData = createAsyncThunk('accounts/GetUserData', async({username})=> {
+    return axios.get(`${API_URL}/GetUserData/${username}`)
     .then((res) => {return res.data})
     .catch((err) => {console.error(err)})
 })

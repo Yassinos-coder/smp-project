@@ -42,7 +42,6 @@ const Levels = () => {
   const [levelToDelete, setLevelToDelete] = useState();
   const [leveltoEdit, setLevelToEdit] = useState()
   const allLevels = useSelector((state) => state.LevelsReducer.LevelInfo);
-  const allStudents = useSelector((state) => state.StudentsAccountsHandler.studentsData)
   useEffect(() => {
     dispatch(GetAllLevels());
   }, []);
@@ -351,7 +350,7 @@ const Levels = () => {
                   <td>{level.levelname}</td>
                   <td>{level.leveltype}</td>
                   <td>{level.levelcode}</td>
-                  <td>{}</td>
+                  <td></td>
                 </tr>
               ))}
             </tbody>

@@ -50,13 +50,13 @@ router.post("/AddAccount", async (req, res) => {
   }
 });
 
-router.get("/GetUserData/:id", async (req, res) => {
-  let id = req.params.id;
+router.get("/GetUserData/:username", async (req, res) => {
+  let username = req.params.username;
   try {
-    let account_data = await UsersDBModel.findOne({ _id: id });
+    let account_data = await UsersDBModel.findOne({ username: username });
     res.send(account_data);
   } catch (err) {
-    console.error(err);
+    console.error("Error in GetUserData",err);
   }
 });
 
