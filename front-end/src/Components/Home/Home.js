@@ -66,19 +66,20 @@ const Home = () => {
   };
   // below we check on response from back-end onclick in login button
   const Login =  () => {
-    dispatch(Signin({ credentials: credentials_to_send }));
     dispatch(getUserID({ username: credentials_to_send.uname }));
     dispatch(GetUserData({ username: credentials_to_send.uname }));
-    if (signin_response === true) {
-      navigate(`/${userID}/Dashboard`);
-      localStorage.userName = uname_input.current.value;
-      localStorage.isStillConnected = "true";
-    } else {
-      setLoginError(true);
-      setInterval(() => {
-        setLoginError(false);
-      }, 2000);
-    }
+    dispatch(Signin({ credentials: credentials_to_send })).then((data) => {
+      if (data.payload === true) {
+        navigate(`/${userID}/Dashboard`);
+        localStorage.userName = credentials_to_send.uname
+        localStorage.isStillConnected = "true"
+      } else {
+        setLoginError(true);
+        setInterval(() => {
+          setLoginError(false);
+        }, 2000);
+      }
+    })
   };
 
   return (
