@@ -57,13 +57,13 @@ const Home = () => {
   }
 
   // Below send_inputs() sends login credentials to back-end onclick in login button
-  const send_inputs = () => {
-    // let credentials_to_send = {
-    //   uname: uname_input.current.value,
-    //   passwd: passwd_input.current.value,
-    // };
+  // const send_inputs = () => {
+  //   // let credentials_to_send = {
+  //   //   uname: uname_input.current.value,
+  //   //   passwd: passwd_input.current.value,
+  //   // };
 
-  };
+  // };
   // below we check on response from back-end onclick in login button
   const Login =  () => {
     dispatch(getUserID({ username: credentials_to_send.uname }));

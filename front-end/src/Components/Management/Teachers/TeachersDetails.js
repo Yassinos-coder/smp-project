@@ -153,7 +153,7 @@ const TeachersDetails = () => {
                     navigate(-1);
                   }}
                 >
-                  Delete Student
+                  Delete Teacher
                 </button>
               </div>
             </div>
