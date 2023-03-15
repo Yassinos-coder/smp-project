@@ -30,7 +30,6 @@ const Home = () => {
   const uname_input = React.createRef();
   const passwd_input = React.createRef();
   const navigate = useNavigate();
-  const userID = localStorage.userID;
 
   useEffect(() => {
     if (!localStorage.role_name) {
@@ -66,13 +65,17 @@ const Home = () => {
   // };
   // below we check on response from back-end onclick in login button
   const Login =  () => {
-    dispatch(getUserID({ username: credentials_to_send.uname }));
-    dispatch(GetUserData({ username: credentials_to_send.uname }));
+    dispatch(getUserID({ username: credentials_to_send.uname })).then((data) => {
+      // console.log(data.payload._id)
+      localStorage.setItem('userID', data.payload._id) 
+    })
     dispatch(Signin({ credentials: credentials_to_send })).then((data) => {
       if (data.payload === true) {
-        navigate(`/${userID}/Dashboard`);
         localStorage.userName = credentials_to_send.uname
         localStorage.isStillConnected = "true"
+         
+        navigate(`/${localStorage.userID}/Dashboard`);
+        dispatch(GetUserData({ username: credentials_to_send.uname }));
       } else {
         setLoginError(true);
         setInterval(() => {

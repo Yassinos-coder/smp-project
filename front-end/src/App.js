@@ -31,9 +31,8 @@ function App() {
 
 
   useEffect(() => {
-    if (localStorage.userID) {
-      dispatch(GetUserData({ id: localStorage.userID }));
-    }
+    dispatch(GetUserData({ username: localStorage.userName }));
+    
     dispatch(GetAllLevels());
     dispatch(GetClassroomGroups());
     dispatch(GetStudentsList());

@@ -108,7 +108,7 @@ const newUserHandler = createSlice({
             state.Error = 'Rejected'
         },
         [getUserID.fulfilled]: (state, action) => {
-            localStorage.setItem('userID', action.payload._id)
+            // localStorage.setItem('userID', action.payload._id)
             state.Status = 'Accepted'
         },
         [getUserID.pending]: (state) => {
