@@ -14,7 +14,7 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.15",
-    "@mui/styles": "^5.11.13",
+    "@mui/styles": "^5.12.3",
     "@mui/x-data-grid": "^6.0.4",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
