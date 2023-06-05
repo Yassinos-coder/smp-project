@@ -9,7 +9,7 @@
     "axios": "^1.3.4",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "generate-password": "^1.7.0",
